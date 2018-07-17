@@ -1,0 +1,4 @@
+D:\Shyam\Elmas\BusinessEntities\bin\Release\BusinessEntities.dll
+D:\Shyam\Elmas\BusinessEntities\bin\Release\BusinessEntities.pdb
+D:\Shyam\Elmas\BusinessEntities\obj\Release\BusinessEntities.dll
+D:\Shyam\Elmas\BusinessEntities\obj\Release\BusinessEntities.pdb

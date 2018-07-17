@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cf6155191be04c60aedfa06539bf7092" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.AccessControl" Width="1.5" PointX="16.5" PointY="44.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Address" Width="1.5" PointX="7.5" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.AlaramType" Width="1.5" PointX="18.75" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.AlarmStatu" Width="1.5" PointX="18.75" PointY="77.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Circle" Width="1.5" PointX="9.75" PointY="33.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Client" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Country" Width="1.5" PointX="0.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.DailySiteEvent" Width="1.5" PointX="21" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.District" Width="1.5" PointX="5.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Division" Width="1.5" PointX="14.25" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.EndClient" Width="1.5" PointX="12" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.EventType" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.LatestSiteEvent" Width="1.5" PointX="21" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.MonthlySiteEvent" Width="1.5" PointX="24" PointY="50.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Partner" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.PortPurpose" Width="1.5" PointX="16.5" PointY="41.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.PrimeVendor" Width="1.5" PointX="9.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Project" Width="1.5" PointX="14.25" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.QuarterlySiteEvent" Width="1.5" PointX="24" PointY="53.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Region" Width="1.5" PointX="12" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Site" Width="1.5" PointX="16.5" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.SiteAlarmEvent" Width="1.5" PointX="21" PointY="57.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.SiteEvent" Width="1.5" PointX="18.75" PointY="47.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.SitePort" Width="1.5" PointX="18.75" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.SiteRemoteAction" Width="1.5" PointX="21.75" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.SiteRemoteActionHistory" Width="1.5" PointX="18.75" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.SiteRemoteActionType" Width="1.5" PointX="16.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.SiteStatu" Width="1.5" PointX="14.25" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.State" Width="1.5" PointX="3" PointY="35.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.TrackingHistory" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.User" Width="1.5" PointX="9.75" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.UserAccess" Width="1.5" PointX="18.75" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.UserProject" Width="1.5" PointX="21.75" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.UserSite" Width="1.5" PointX="21.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.UserStatu" Width="1.5" PointX="17.25" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.Usertbl" Width="1.5" PointX="19.5" PointY="25.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ELMAS_UPS_V1Model.WeeklySiteEvent" Width="1.5" PointX="24" PointY="56.875" IsExpanded="true" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserAccess_AccessControl" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Address_District" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Circle_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Division_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Region_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Site_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_User_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteAlarmEvents_AlaramType" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteAlarmEvents_AlarmStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Region_Circle" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserAccess_Circle" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Client_Partner" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_State_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_DailySiteEvent_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_DailySiteEvent_SiteEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_District_State" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Division_Region1" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Site_Division" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_EndClient_PrimeVendor" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Project_EndClient" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_LatestSiteEvent_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_LatestSiteEvent_SiteEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_MonthlySiteEvent_MonthlySiteEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_MonthlySiteEvent_SiteEvent1" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SitePort_PortPurpose" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Site_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserAccess_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_QuarterlySiteEvent_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_QuarterlySiteEvent_SiteEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserAccess_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_Site_SiteStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteAlarmEvents_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteEvent_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SitePort_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteRemoteAction_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteRemoteActionHistory_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserAccess_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserSite_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_WeeklySiteEvent_Site" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteAlarmEvents_SiteEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_WeeklySiteEvent_SiteEvent" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteRemoteAction_SiteRemoteActionType" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_SiteRemoteActionHistory_SiteRemoteActionType" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserAccess_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserProject_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_UserSite_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ELMAS_UPS_V1Model.FK_User_UserStatus" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

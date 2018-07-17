@@ -1,0 +1,5 @@
+D:\Shyam\Elmas\Indus.Logger\bin\Debug\Indus.Logger.dll
+D:\Shyam\Elmas\Indus.Logger\bin\Debug\Indus.Logger.pdb
+D:\Shyam\Elmas\Indus.Logger\obj\Debug\Indus.Logger.dll
+D:\Shyam\Elmas\Indus.Logger\obj\Debug\Indus.Logger.pdb
+D:\Shyam\Elmas\Indus.Logger\obj\Debug\Elmas.Logger.csprojResolveAssemblyReference.cache

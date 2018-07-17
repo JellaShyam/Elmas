@@ -1,0 +1,5 @@
+D:\Sample\Vtrace-Restfull-API\Indus.Logger\bin\Debug\Indus.Logger.dll
+D:\Sample\Vtrace-Restfull-API\Indus.Logger\bin\Debug\Indus.Logger.pdb
+D:\Sample\Vtrace-Restfull-API\Indus.Logger\obj\Debug\Indus.Logger.csprojResolveAssemblyReference.cache
+D:\Sample\Vtrace-Restfull-API\Indus.Logger\obj\Debug\Indus.Logger.dll
+D:\Sample\Vtrace-Restfull-API\Indus.Logger\obj\Debug\Indus.Logger.pdb

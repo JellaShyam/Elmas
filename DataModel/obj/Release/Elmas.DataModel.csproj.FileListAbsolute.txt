@@ -1,0 +1,10 @@
+D:\Shyam\Elmas\DataModel\bin\Release\DataModel.dll.config
+D:\Shyam\Elmas\DataModel\bin\Release\DataModel.dll
+D:\Shyam\Elmas\DataModel\bin\Release\DataModel.pdb
+D:\Shyam\Elmas\DataModel\bin\Release\EntityFramework.dll
+D:\Shyam\Elmas\DataModel\bin\Release\EntityFramework.SqlServer.dll
+D:\Shyam\Elmas\DataModel\bin\Release\System.Linq.Dynamic.dll
+D:\Shyam\Elmas\DataModel\bin\Release\EntityFramework.xml
+D:\Shyam\Elmas\DataModel\bin\Release\EntityFramework.SqlServer.xml
+D:\Shyam\Elmas\DataModel\obj\Release\DataModel.dll
+D:\Shyam\Elmas\DataModel\obj\Release\DataModel.pdb

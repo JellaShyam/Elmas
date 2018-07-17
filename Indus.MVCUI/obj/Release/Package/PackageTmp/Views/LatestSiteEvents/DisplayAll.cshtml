@@ -1,0 +1,163 @@
+﻿@{
+    ViewBag.Title = "DisplayAll";
+}
+<style>
+    .fs20 {
+        font-size: 20px;
+    }
+
+    .fs12 {
+        font-size: 12px;
+    }
+
+    .fs30 {
+        font-size: 30px;
+    }
+</style>
+<link href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css" rel="stylesheet" />
+
+<!-- Main content -->
+<section class="#">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">UPS List</h3>
+                    <div class="box-tools pull-right">
+                        <a href="#" class="fa fa-refresh" id="btnRefresh"></a>&nbsp;
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body" style="overflow-x: scroll">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th rowspan="3" class="bg-gray">UPS ID</th>
+                                <th rowspan="3" class="bg-gray">Date</th>
+                                <th colspan="9" class="bg-red">Mains</th>
+                                <th colspan="9" class="bg-green">Inverter</th>
+                                <th rowspan="3" class="bg-gray">Status</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3" class="bg-gray">Voltage</th>
+                                <th colspan="3" class="bg-gray">Current</th>
+                                <th colspan="3" class="bg-gray">Frequency</th>
+                                <th colspan="3" class="bg-gray">Voltage</th>
+                                <th colspan="3" class="bg-gray">Current</th>
+                                <th colspan="3" class="bg-gray">Frequency</th>
+                            </tr>
+                            <tr>
+                                <th class="bg-danger">R</th>
+                                <th class="bg-warning">Y</th>
+                                <th class="bg-info">B</th>
+                                <th class="bg-danger">R</th>
+                                <th class="bg-warning">Y</th>
+                                <th class="bg-info">B</th>
+                                <th class="bg-danger">R</th>
+                                <th class="bg-warning">Y</th>
+                                <th class="bg-info">B</th>
+                                <th class="bg-danger">R</th>
+                                <th class="bg-warning">Y</th>
+                                <th class="bg-info">B</th>
+                                <th class="bg-danger">R</th>
+                                <th class="bg-warning">Y</th>
+                                <th class="bg-info">B</th>
+                                <th class="bg-danger">R</th>
+                                <th class="bg-warning">Y</th>
+                                <th class="bg-info">B</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
+@section Scripts
+{
+    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js"></script>    
+    <script>
+        var dtGrid, timer, doRefresh=true;
+        ResetInterval();        
+        dtGrid = $('#example2').DataTable({
+            "responsive": false,
+            'lengthChange': false,
+            "processing": true, // for show progress bar
+            "filter": false, // this is for disable filter (search box)
+            'autoWidth': false,
+            "order": [[1, "desc"]],
+            ajax: {
+                url: '@Url.Action("GetAllLatestEvents", "LatestSiteEvents")',
+                "type": "GET",
+                "datatype": "json",
+                "dataSrc": function (json) {
+                    return json;
+                },
+                error: function (xhr, tst, err) {
+                    window.location.href = '/';
+                }
+            },
+            columns: [
+                { "data": "SiteEventEntity.SiteEntity.SiteId", "name": "SiteEventEntity.SiteEntity.SiteId" },
+                {
+                    "data": "SiteEventEntity.EventDateTime", "name": "SiteEventEntity.EventDateTime",
+                    "render": function (jsonDate) {
+                        var date = new Date(parseInt(jsonDate.substr(6)));
+                        var month = date.getMonth() + 1;
+                        var data = '<span id="date">' + date.getDate() + "-" + month + "-" + date.getFullYear() + "  " + date.toLocaleTimeString() + '</span>';
+                        return data;
+                    }
+                },
+                { "data": "SiteEventEntity.MainsRVoltage", "name": "SiteEventEntity.MainsRVoltage" },
+                { "data": "SiteEventEntity.MainsYVoltage", "name": "SiteEventEntity.MainsYVoltage" },
+                { "data": "SiteEventEntity.MainsBVoltage", "name": "SiteEventEntity.MainsBVoltage" },
+                { "data": "SiteEventEntity.MainsRCurrent", "name": "SiteEventEntity.MainsRCurrent" },
+                { "data": "SiteEventEntity.MainsYCurrent", "name": "SiteEventEntity.MainsYCurrent" },
+                { "data": "SiteEventEntity.MainsBCurrent", "name": "SiteEventEntity.MainsBCurrent" },
+                { "data": "SiteEventEntity.MainsRFrequency", "name": "SiteEventEntity.MainsRFrequency" },
+                { "data": "SiteEventEntity.MainsYFrequency", "name": "SiteEventEntity.MainsYFrequency" },
+                { "data": "SiteEventEntity.MainsBFrequency", "name": "SiteEventEntity.MainsBFrequency" },
+                { "data": "SiteEventEntity.InverterRVoltage", "name": "SiteEventEntity.InverterRVoltage" },
+                { "data": "SiteEventEntity.InverterYVoltage", "name": "SiteEventEntity.InverterYVoltage" },
+                { "data": "SiteEventEntity.InverterBVoltage", "name": "SiteEventEntity.InverterBVoltage" },
+                { "data": "SiteEventEntity.InverterRCurrent", "name": "SiteEventEntity.InverterRCurrent" },
+                { "data": "SiteEventEntity.InverterYCurrent", "name": "SiteEventEntity.InverterYCurrent" },
+                { "data": "SiteEventEntity.InverterBCurrent", "name": "SiteEventEntity.InverterBCurrent" },
+                { "data": "SiteEventEntity.InverterRFrequency", "name": "SiteEventEntity.InverterRFrequency" },
+                { "data": "SiteEventEntity.InverterYFrequency", "name": "SiteEventEntity.InverterYFrequency" },
+                { "data": "SiteEventEntity.InverterBFrequency", "name": "SiteEventEntity.InverterBFrequency" },
+                {
+                    "data": "SiteEventEntity.SiteEntity.SiteStatusEntity.ShortName", "name": "SiteEventEntity.SiteEntity.SiteStatusEntity.ShortName",
+                    "render": function (json) {
+                        var status = json;
+                        if (status) {
+                            return '<span class="fa fa-spin fa-cog fs20 text-green"></span><span class="fa fa-spin fa-cog text-green"></span>';
+                        } else {
+                            return '<span class="fa fa-spin fa-cog fs20 text-red"></span><span class="fa fa-spin fa-cog text-red"></span>';
+                        }
+                    }
+                }
+            ]
+        });
+        $("#btnRefresh").on('click', function () {
+            dtGrid.ajax.reload(null, false);
+            ResetInterval();
+        });
+        function ResetInterval() {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                if (doRefresh) {
+                    dtGrid.ajax.reload(null, false); // user paging is not reset on reload
+                }
+            }, 60000);
+        }        
+    </script>
+}

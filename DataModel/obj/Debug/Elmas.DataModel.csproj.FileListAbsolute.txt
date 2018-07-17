@@ -1,0 +1,11 @@
+D:\Shyam\Elmas\DataModel\bin\Debug\DataModel.dll.config
+D:\Shyam\Elmas\DataModel\bin\Debug\DataModel.dll
+D:\Shyam\Elmas\DataModel\bin\Debug\DataModel.pdb
+D:\Shyam\Elmas\DataModel\bin\Debug\EntityFramework.dll
+D:\Shyam\Elmas\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Shyam\Elmas\DataModel\bin\Debug\System.Linq.Dynamic.dll
+D:\Shyam\Elmas\DataModel\bin\Debug\EntityFramework.xml
+D:\Shyam\Elmas\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Shyam\Elmas\DataModel\obj\Debug\DataModel.dll
+D:\Shyam\Elmas\DataModel\obj\Debug\DataModel.pdb
+D:\Shyam\Elmas\DataModel\obj\Debug\Elmas.DataModel.csprojResolveAssemblyReference.cache

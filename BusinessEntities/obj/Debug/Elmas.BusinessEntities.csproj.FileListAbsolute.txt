@@ -1,0 +1,5 @@
+D:\Shyam\Elmas\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\Shyam\Elmas\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\Shyam\Elmas\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\Shyam\Elmas\BusinessEntities\obj\Debug\BusinessEntities.pdb
+D:\Shyam\Elmas\BusinessEntities\obj\Debug\Elmas.BusinessEntities.csprojResolveAssemblyReference.cache

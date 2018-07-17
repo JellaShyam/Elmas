@@ -1,0 +1,114 @@
+﻿@model BusinessEntities.PagedLatestSiteEvent
+
+@{
+    ViewBag.Title = "title";    
+}
+<link href="~/Content/tooltipster.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootpage.min.js"></script>
+
+@{ Html.RenderPartial("Partial1", Model); }
+
+    @*//Tooltip Template for Site Id Search*@
+<div class="tooltip">
+    <div class="tooltip_content">
+        <input type="text" placeholder="Site Id" class="form-control" />
+        <ul id="list_a">
+            <li value="1"><div style="float: right" class="closeButton">X&nbsp;&nbsp;</div><div>Red&nbsp;&nbsp;</div></li>
+            <li value="2"><div style="float: right" class="closeButton">X&nbsp;&nbsp;</div><div>Red&nbsp;&nbsp;</div></li>
+            <li value="3"><div style="float: right" class="closeButton">X&nbsp;&nbsp;</div><div>Red&nbsp;&nbsp;</div></li>
+        </ul>
+        <hr style="margin: 2px" />
+        <div class="col-xs-6 text-center">
+            <button type="button" class="btn btn-sm btn-warning">Warning</button>
+        </div>
+        <div class="col-xs-6 text-center">
+            <button type="button" class="btn btn-sm btn-success">Success</button>
+        </div>
+    </div>
+</div>
+    @*//Tooltip Template for Range Filter Search*@
+<div class="tooltip">
+    <div id="tpc_RangeFilter">
+        <div style="height: 300px;overflow-y: scroll">123</div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/tooltipster.js"></script>
+    <script src="~/Scripts/TooltipData.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+            $('.closeButton').on('click',
+                function() {
+                    $(this).parent().remove();
+                });
+            $('#SiteId_Filter').tooltipster({
+                content: $('.tooltip_content'),
+                animation: "fade",
+                delay: 50,
+                theme: ".tooltipster-default",
+                touchDevices: true,
+                trigger: "click",
+                interactive: true,
+                position: ['right'],
+                contentCloning: true,
+                offsetX: 0,
+                offsetY: -50
+            });
+            $('[id^="tp_SiteInfo_"]').tooltipster({
+                content: 'Loading...',
+                animation: "fade",
+                delay: 100,
+                theme: ".tooltipster-default",
+                touchDevices: true,
+                trigger: "click",
+                interactive: true,
+                position: 'right',
+                restoration: false,
+                contentAsHTML: true,
+                offsetX: -10,
+                offsetY: -105,
+                functionBefore: function(origin, continueTooltip) {
+                    var latestSiteEventsJson = [];
+                    var siteId = $(this).closest('tr').find('td').eq(0).text();
+                    continueTooltip();
+                    var latestSiteEventsRaw = '@Html.Raw(Json.Encode(Model.MinifiedLatestSiteEvents))';
+                    latestSiteEventsJson = JSON.parse(latestSiteEventsRaw);
+                    for (var i = 0; i < latestSiteEventsJson.length; i++) {
+                        if (latestSiteEventsJson[i].SiteEventEntity.SiteEntity.SiteId === siteId)
+                        {
+                            var tipHtmlData = JsonToHtmltemplate(latestSiteEventsJson[i].SiteEventEntity);
+                            origin.tooltipster('update', tipHtmlData).data('ajax', 'cached');
+                            break;
+                        }
+                    }
+                },
+                functionAfter: function(origin, continueTooltip) {
+                    $(this).tooltipster('content', 'Loading...');
+                }
+            });
+
+            $(".header").click(function (evt) {
+                var sortfield = $(evt.target).data("sortfield");
+                if ($("#SortField").val() === sortfield) {
+                    if ($("#SortDirection").val() === "ascending") {
+                        $("#SortDirection").val("descending");
+                    } else {
+                        $("#SortDirection").val("ascending");
+                    }
+                } else {
+                    $("#SortField").val(sortfield);
+                    $("#SortDirection").val("ascending");
+                }
+                $("#CurrentPageIndex").val("0");
+                evt.preventDefault();
+                $("form").submit();
+            });
+        });
+
+    </script>
+
+}

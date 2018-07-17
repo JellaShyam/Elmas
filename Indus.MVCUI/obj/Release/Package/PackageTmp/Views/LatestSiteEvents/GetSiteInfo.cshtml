@@ -1,0 +1,674 @@
+﻿
+@model BusinessEntities.LatestSiteEventEntity
+
+@helper CurrentUnit(bool valueStatus)
+{
+    if (valueStatus)
+    {
+        <span class="text-danger fs12">%</span>
+    }
+    else
+    {
+        <span class="text-danger fs12">A</span>
+    }
+}
+
+@helper SelectIcon(bool value, string propertyName, bool red)
+{
+    var val = propertyName;
+    val = string.Concat(val.Select(x => Char.IsUpper(x) ? " " + x : x.ToString())).TrimStart(' ');
+    var firstletter = val.Split(new char[] { ' ' }).Aggregate("", (current, c) => current + c[0]);
+    firstletter = firstletter.ToUpper();
+    <div class="col-lg-3 col-xs-3">
+        <table style="text-align: center">
+            <tr><td>@firstletter</td></tr>
+            <tr>
+                <td title="@val">
+                    @if (value)
+                    {
+                        if (red)
+                        {
+                            <span class="fa fa-circle text-danger fs30"></span>
+                        }
+                        else
+                        {
+                            <span class="fa fa-circle text-success fs30"></span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="fa fa-circle text-gray fs30"></span>
+                    }
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+}
+<style>
+    .C-info-box-icon {
+        height: 70px;
+        width: 70px;
+        line-height: 70px;
+    }
+
+    .c-info-box {
+        min-height: 70px;
+        margin-bottom: 5px;
+    }
+</style>
+<!-- daterange picker -->
+<link rel="stylesheet" href="~/Theme/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+<link href="~/Content/tooltipster.css" rel="stylesheet" />
+<link href="~/Scripts/jquery_ui/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/Tosatr.css" rel="stylesheet" />
+
+
+@if (Model.EventId != 0)
+{
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="col-md-5">
+                <h3 class="box-title">@Model.SiteEventEntity.SiteEntity.SiteId</h3>
+            </div>
+            <div class="col-md-7">
+                @Model.EventDate
+                <div class="box-tools pull-right">
+                    <div class="slidingDiv" style="float: left;margin-top: -5px">
+                        <div class="input-group">
+                            <button type="button" class="btn btn-default pull-right" style="margin-left: -4px"><span class="glyphicon glyphicon-search"></span></button>
+                            <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+                                <span><i class="fa fa-calendar"></i> Date range picker</span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <a href="#" class="fa fa-history show_hide"></a>&nbsp;&nbsp;
+
+                    <a href="#" class="fa fa-refresh" id="btnManualRefresh"></a>&nbsp;
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="panel panel-default">
+                    <div class="panel-heading bg-red" style="padding: 6px;">
+                        <i class="panel-title fa fa-2x text-danger fa-plug" style="float: right;"></i>
+                        <span class="panel-title">Mains</span>
+                    </div>
+                    <div class="panel-body" style="padding: 5px">
+                        <div class="col-sm-12 col-lg-4 ryb_Blocks">
+                            <div class="info-box c-info-box ">
+                                <span class="info-box-icon bg-red C-info-box-icon">R</span>
+                                <div class="info-box-content" style="margin-left: 70px">
+                                    <table width="100%">
+                                        <tr><td>Voltage</td><td><strong> @Model.SiteEventEntity.MainsRVoltage.ToString("0.0")</strong><span class="text-danger fs12">V</span></td></tr>
+                                        <tr>
+                                            <td>Current</td>
+                                            <td>
+                                                <strong> @Model.SiteEventEntity.MainsRCurrent.ToString("0.0")</strong>
+                                                @CurrentUnit(@Model.SiteEventEntity.ShowMainsRCurrentInPercentage)
+                                            </td>
+                                        </tr>
+                                        <tr><td>Frequency&nbsp;</td><td> <strong>@Model.SiteEventEntity.MainsRFrequency.ToString("0.0")</strong><span class="text-danger fs12">Hz</span></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row" style="padding-left: 15px; padding-right: 15px">
+                                <div class="col-md-12" style="padding: 0px; margin-top: 5px">
+                                    @if (Model.SiteEventEntity.EnableMainsRFrequencyHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsRFrequencyHigh, "MainsRFrequencyHigh", true)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsRFrequencyLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsRFrequencyLow, "MainsRFrequencyLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsRHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsRHigh, "MainsRHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsRLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsRLow, "MainsRLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsRok)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsRok, "MainsROk", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsRled)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsRled, "MainsRLed", false)
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-4 ryb_Blocks">
+                            <div class="info-box c-info-box">
+                                <span class="info-box-icon bg-yellow C-info-box-icon">Y</span>
+                                <div class="info-box-content" style="margin-left: 70px">
+                                    <table width="100%">
+                                        <tr><td>Voltage</td><td><strong> @Model.SiteEventEntity.MainsYVoltage.ToString("0.0")</strong><span class="text-danger fs12">V</span></td></tr>
+                                        <tr>
+                                            <td>Current</td>
+                                            <td>
+                                                <strong> @Model.SiteEventEntity.MainsYCurrent.ToString("0.0")</strong>
+                                                @CurrentUnit(@Model.SiteEventEntity.ShowMainsYCurrentInPercentage)
+                                            </td>
+                                        </tr>
+                                        <tr><td>Frequency&nbsp;</td><td> <strong>@Model.SiteEventEntity.MainsYFrequency.ToString("0.0")</strong><span class="text-danger fs12">Hz</span></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-left: 15px; padding-right: 15px">
+                                <div class="col-md-12" style="padding: 0px; border-right: 1px solid #c0c0c0; border-left: 1px solid #c0c0c0; margin-top: 5px">
+                                    @if (Model.SiteEventEntity.EnableMainsYFrequencyHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsYFrequencyHigh, "MainsYFrequencyHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsYFrequencyLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsYFrequencyLow, "MainsYFrequencyLow", true)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsYHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsYHigh, "MainsYHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsYLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsYLow, "MainsYLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsYok)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsYok, "MainsYOk", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsYled)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsYled, "MainsYLed", false)
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="info-box c-info-box">
+                                <span class="info-box-icon bg-blue C-info-box-icon">B</span>
+                                <div class="info-box-content" style="margin-left: 70px">
+                                    <table width="100%">
+                                        <tr><td>Voltage</td><td><strong> @Model.SiteEventEntity.MainsBVoltage.ToString("0.0")</strong><span class="text-danger fs12">V</span></td></tr>
+                                        <tr>
+                                            <td>Current</td>
+                                            <td>
+                                                <strong> @Model.SiteEventEntity.MainsBCurrent.ToString("0.0")</strong>
+                                                @CurrentUnit(@Model.SiteEventEntity.ShowMainsBCurrentInPercentage)
+                                            </td>
+                                        </tr>
+                                        <tr><td>Frequency&nbsp;</td><td> <strong>@Model.SiteEventEntity.MainsBFrequency.ToString("0.0")</strong><span class="text-danger fs12">Hz</span></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-left: 15px; padding-right: 15px">
+                                <div class="col-md-12" style="padding: 0px; margin-top: 5px">
+                                    @if (Model.SiteEventEntity.EnableMainsBFrequencyHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsBFrequencyHigh, "MainsBFrequencyHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsBFrequencyLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsBFrequencyLow, "MainsBFrequencyLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsBHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsBHigh, "MainsBHigh", true)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsBLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsBLow, "MainsBLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsBok)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsBok, "MainsBOk", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableMainsBled)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsMainsBled, "MainsBLed", false)
+                                    }
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading bg-green" style="padding: 6px;">
+                        <i class="panel-title fa fa-2x text-success fa-random" style="float: right; margin-top: -2px"></i>
+                        <span class="panel-title">Inverter</span>
+                    </div>
+                    <div class="panel-body" style="padding: 5px">
+
+                        <div class="col-sm-12 col-lg-4 ryb_Blocks">
+                            <div class="info-box c-info-box">
+                                <span class="info-box-icon bg-red C-info-box-icon">R</span>
+                                <div class="info-box-content" style="margin-left: 70px">
+                                    <table width="100%">
+                                        <tr><td>Voltage</td><td><strong> @Model.SiteEventEntity.InverterRVoltage.ToString("0.0")</strong><span class="text-danger fs12">V</span></td></tr>
+                                        <tr>
+                                            <td>Current</td>
+                                            <td>
+                                                <strong> @Model.SiteEventEntity.InverterRCurrent.ToString("0.0")</strong>
+                                                @CurrentUnit(@Model.SiteEventEntity.ShowInverterRCurrentInPercentage)
+                                            </td>
+                                        </tr>
+                                        <tr><td>Frequency&nbsp;</td><td> <strong>@Model.SiteEventEntity.InverterRFrequency.ToString("0.0")</strong><span class="text-danger fs12">Hz</span></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-left: 15px; padding-right: 15px">
+                                <div class="col-md-12" style="padding: 0px; margin-top: 5px">
+                                    @if (Model.SiteEventEntity.EnableInverterRFrequencyHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterRFrequencyHigh, "InverterRFrequencyHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterRFrequencyLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterRFrequencyLow, "InverterRFrequencyLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterRHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterRHigh, "InverterRHigh", true)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterRLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterRLow, "InverterRLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterRok)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterRok, "InverterROk", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterRled)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterRled, "InverterRLed", true)
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-4 ryb_Blocks">
+                            <div class="info-box c-info-box">
+                                <span class="info-box-icon bg-yellow C-info-box-icon">Y</span>
+                                <div class="info-box-content" style="margin-left: 70px">
+                                    <table width="100%">
+                                        <tr><td>Voltage</td><td><strong> @Model.SiteEventEntity.InverterYVoltage.ToString("0.0")</strong><span class="text-danger fs12">V</span></td></tr>
+                                        <tr>
+                                            <td>Current</td>
+                                            <td>
+                                                <strong> @Model.SiteEventEntity.InverterYCurrent.ToString("0.0")</strong>
+                                                @CurrentUnit(@Model.SiteEventEntity.ShowInverterYCurrentInPercentage)
+                                            </td>
+                                        </tr>
+                                        <tr><td>Frequency&nbsp;</td><td> <strong>@Model.SiteEventEntity.InverterYFrequency.ToString("0.0")</strong><span class="text-danger fs12">Hz</span></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-left: 15px; padding-right: 15px">
+                                <div class="col-md-12" style="padding: 0px; border-right: 1px solid #c0c0c0; border-left: 1px solid #c0c0c0; margin-top: 5px">
+                                    @if (Model.SiteEventEntity.EnableInverterYFrequencyHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterYFrequencyHigh, "InverterYFrequencyHigh", true)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterYFrequencyLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterYFrequencyLow, "InverterYFrequencyLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterYHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterYHigh, "InverterYHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterYLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterYLow, "InverterYLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterYok)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterYok, "InverterYOk", true)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterYled)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterYled, "InverterYLed", false)
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-lg-4 ryb_Blocks">
+                            <div class="info-box c-info-box">
+                                <span class="info-box-icon bg-blue C-info-box-icon">B</span>
+                                <div class="info-box-content" style="margin-left: 70px">
+                                    <table width="100%">
+                                        <tr><td>Voltage</td><td><strong> @Model.SiteEventEntity.InverterBVoltage.ToString("0.0")</strong><span class="text-danger fs12">V</span></td></tr>
+                                        <tr>
+                                            <td>Current</td>
+                                            <td>
+                                                <strong> @Model.SiteEventEntity.InverterBCurrent.ToString("0.0")</strong>
+                                                @CurrentUnit(@Model.SiteEventEntity.ShowInverterBCurrentInPercentage)
+                                            </td>
+                                        </tr>
+                                        <tr><td>Frequency&nbsp;</td><td> <strong>@Model.SiteEventEntity.InverterBFrequency.ToString("0.0")</strong><span class="text-danger fs12">Hz</span></td></tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row" style="padding-left: 15px; padding-right: 15px">
+                                <div class="col-md-12" style="padding: 0px; margin-top: 5px">
+                                    @if (Model.SiteEventEntity.EnableInverterBFrequencyHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterBFrequencyHigh, "InverterBFrequencyHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterBFrequencyLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterBFrequencyLow, "InverterBFrequencyLow", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterBHigh)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterBHigh, "InverterBHigh", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterBLow)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterBLow, "InverterBLow", true)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterBok)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterBok, "InverterBOk", false)
+                                    }
+                                    @if (Model.SiteEventEntity.EnableInverterBled)
+                                    {
+                                        @SelectIcon(Model.SiteEventEntity.IsInverterBled, "InverterBLed", false)
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-md-6">
+            <div class="panel panel-info">
+                <div class="panel-heading bg-aqua" style="padding: 6px;">
+                    <i class="panel-title fa fa-2x text-success fa-battery-three-quarters" style="float: right; margin-top: -2px"></i>
+                    <span class="panel-title">Battery</span>
+                </div>
+                <div class="panel-body" style="padding: 5px">
+                    <div class="col-md-8">
+                        <table class="table table-hover">
+                            <tbody>
+
+                            <tr>
+                                <td>Voltage</td>
+                                <td>@Model.SiteEventEntity.BatteryVoltage</td>
+
+                            </tr>
+                            <tr>
+                                <td>SolarChargingCurrent</td>
+                                <td>@Model.SiteEventEntity.BatterySolarChargingCurrent</td>
+
+                            </tr>
+                            <tr>
+                                <td>GridChargingCurrent</td>
+                                <td>@Model.SiteEventEntity.BatteryGridChargingCurrent</td>
+
+                            </tr>
+                            <tr>
+                                <td>DischargingCurrent</td>
+                                <td>@Model.SiteEventEntity.BatteryDischargingCurrent</td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+
+                            @if (Model.SiteEventEntity.EnableBatterySolarChargerOn)
+                            {
+                                <div class="col-md-4">
+                                    @SelectIcon(Model.SiteEventEntity.IsBatterySolarChargerOn, "BatterySolarChargerOn", false)
+                                </div>
+                            }
+
+
+                            @if (Model.SiteEventEntity.EnableBatteryGridChargerOn)
+                            {
+                                <div class="col-md-4">
+                                    @SelectIcon(Model.SiteEventEntity.IsBatteryGridChargerOn, "BatteryGridChargerOn", false)
+                                </div>
+                            }
+
+
+                            @if (Model.SiteEventEntity.EnableBatteryDischargingOn)
+                            {
+                                <div class="col-md-4">
+                                    @SelectIcon(Model.SiteEventEntity.IsBatteryDischargingOn, "BatteryDischargingOn", true)
+                                </div>
+                            }
+
+
+                            @if (Model.SiteEventEntity.EnableBatteryHigh)
+                            {
+                                <div class="col-md-4">
+                                    @SelectIcon(Model.SiteEventEntity.IsBatteryHigh, "BatteryHigh", false)
+                                </div>
+                            }
+
+
+                            @if (Model.SiteEventEntity.EnableBatteryLow)
+                            {
+                                <div class="col-md-4">
+                                    @SelectIcon(Model.SiteEventEntity.IsBatteryLow, "BatteryLow", true)
+                                </div>
+                            }
+
+
+                            @if (Model.SiteEventEntity.EnableBatteryOk)
+                            {
+                                <div class="col-md-4">
+                                    @SelectIcon(Model.SiteEventEntity.IsBatteryOk, "BatteryOk", false)
+                                </div>
+                            }
+
+
+                            @if (Model.SiteEventEntity.EnableBatteryFaultLed)
+                            {
+                                <div class="col-md-4">
+                                    @SelectIcon(Model.SiteEventEntity.IsBatteryFaultLed, "BatteryFaultLed", true)
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading bg-gray" style="padding: 6px;">
+                    <i class="fa fa-2x fa-windows" style="float: right; margin-top: -2px"></i>
+                    <span class="panel-title">Solar</span>
+                </div>
+                <div class="panel-body" style="padding: 5px">
+                    <table class="table table-hover" style="margin-bottom: 1px; border-bottom: 1px solid #c0c0c0">
+                        <tbody>
+
+                        <tr>
+                            <td>Voltage</td>
+                            <td>@Model.SiteEventEntity.SolarVoltage</td>
+
+                        </tr>
+                        <tr>
+                            <td>SolarCurrent</td>
+                            <td>@Model.SiteEventEntity.SolarCurrent</td>
+
+                        </tr>
+                        <tr>
+                            <td>SolarGeneration</td>
+                            <td>@Model.SiteEventEntity.SolarGeneration</td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        @if (Model.SiteEventEntity.EnableSolarOverCurrent)
+                        {
+                            <div class="col-md-2">
+                                @SelectIcon(Model.SiteEventEntity.IsSolarOverCurrent, "SolarOverCurrent", false)
+                            </div>
+                        }
+                        @if (Model.SiteEventEntity.EnableSolarHigh)
+                        {
+                            <div class="col-md-2">
+                                @SelectIcon(Model.SiteEventEntity.IsSolarHigh, "SolarHigh", false)
+                            </div>
+                        }
+                        @if (Model.SiteEventEntity.EnableSolarLow)
+                        {
+                            <div class="col-md-2">
+                                @SelectIcon(Model.SiteEventEntity.IsSolarLow, "SolarLow", true)
+                            </div>
+                        }
+                        @if (Model.SiteEventEntity.EnableSolarOk)
+                        {
+                            <div class="col-md-2">
+                                @SelectIcon(Model.SiteEventEntity.IsSolarOk, "SolarOk", false)
+                            </div>
+                        }
+                        @if (Model.SiteEventEntity.EnableSolarChargerLed)
+                        {
+                            <div class="col-md-2">
+                                @SelectIcon(Model.SiteEventEntity.IsSolarChargerLed, "SolarChargerLed", true)
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+
+            <div class="panel panel-info">
+                <div class="panel-heading" style="padding: 6px">
+                    <i class="panel-title fa fa-2x fa-bell" style="float: right; margin-top: -2px"></i>
+                    <span class="panel-title">Other Alarms</span>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        @if (Model.SiteEventEntity.EnableLoadFaultLed)
+                        {
+                            <div class="col-md-4">
+                                @SelectIcon(Model.SiteEventEntity.IsLoadFaultLed, "LoadFaultLed", false)
+                            </div>
+
+                        }
+
+                        @if (Model.SiteEventEntity.EnableGridChargerLed)
+                        {
+                            <div class="col-md-4">
+                                @SelectIcon(Model.SiteEventEntity.IsGridChargerLed, "GridChargerLed", false)
+                            </div>
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        </div>
+        <!-- /.box-body -->
+    </div>
+}
+else
+{
+    <h2>Data Not Found.</h2>
+}
+
+@section Scripts
+{
+
+    <script src="~/Scripts/tooltipster.js"></script>
+    <script src="~/Scripts/jquery_ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/Toastr.min.js"></script>
+    <script src="~/Scripts/bootpage.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="~/Theme/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/Theme/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript">
+        var timer, doRefresh = true;
+
+        ResetInterval();
+
+        $(".slidingDiv").hide();
+        $(".show_hide").show();
+        $('.show_hide').click(function () {
+            $(".slidingDiv").toggle("slide");
+        });
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [
+                        moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')
+                    ]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            }
+        );
+        $("#btnManualRefresh").on('click', function () {
+            window.location.reload();
+            ResetInterval();
+        });
+        
+        function ResetInterval() {
+            clearInterval(timer);
+            timer = setInterval(function () {
+                if (doRefresh) {
+                    window.location.reload();
+                }
+            }, 60000);
+        }
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        //toastr.info("Welcome Shyam!");
+    </script>
+
+}

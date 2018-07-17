@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="INDUS_1WAY_P1_V2ModelStoreContainer" CdmEntityContainer="INDUS_1WAY_P1_V2Entities">
+    <EntitySetMapping Name="AccessControls">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.AccessControl">
+        <MappingFragment StoreEntitySet="AccessControl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Line1" ColumnName="Line1" />
+          <ScalarProperty Name="Line2" ColumnName="Line2" />
+          <ScalarProperty Name="Line3" ColumnName="Line3" />
+          <ScalarProperty Name="TalukMandal" ColumnName="TalukMandal" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+          <ScalarProperty Name="ContactPersonNumber" ColumnName="ContactPersonNumber" />
+          <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+          <ScalarProperty Name="ContactEMail" ColumnName="ContactEMail" />
+          <ScalarProperty Name="Latitute" ColumnName="Latitute" />
+          <ScalarProperty Name="Longitute" ColumnName="Longitute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlaramTypes">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.AlaramType">
+        <MappingFragment StoreEntitySet="AlaramType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlarmStatus">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.AlarmStatu">
+        <MappingFragment StoreEntitySet="AlarmStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Circles">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Circle">
+        <MappingFragment StoreEntitySet="Circle">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ControlAddress" ColumnName="ControlAddress" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailySiteEvents">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.DailySiteEvent">
+        <MappingFragment StoreEntitySet="DailySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="ControlAddress" ColumnName="ControlAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EndClients">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.EndClient">
+        <MappingFragment StoreEntitySet="EndClient">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PrimeVendor" ColumnName="PrimeVendor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventTypes">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.EventType">
+        <MappingFragment StoreEntitySet="EventType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LatestSiteEvents">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.LatestSiteEvent">
+        <MappingFragment StoreEntitySet="LatestSiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlySiteEvents">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.MonthlySiteEvent">
+        <MappingFragment StoreEntitySet="MonthlySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Partner">
+        <MappingFragment StoreEntitySet="Partner">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortPurposes">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.PortPurpose">
+        <MappingFragment StoreEntitySet="PortPurpose">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimeVendors">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.PrimeVendor">
+        <MappingFragment StoreEntitySet="PrimeVendor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EndClientId" ColumnName="EndClientId" />
+          <ScalarProperty Name="AccessId" ColumnName="AccessId" />
+          <ScalarProperty Name="AccessPassword" ColumnName="AccessPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuarterlySiteEvents">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.QuarterlySiteEvent">
+        <MappingFragment StoreEntitySet="QuarterlySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CircleId" ColumnName="CircleId" />
+          <ScalarProperty Name="ControlAddress" ColumnName="ControlAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Site">
+        <MappingFragment StoreEntitySet="Site">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="SIMNumber" ColumnName="SIMNumber" />
+          <ScalarProperty Name="SIMNetworkDetails" ColumnName="SIMNetworkDetails" />
+          <ScalarProperty Name="SIMAPNDetails" ColumnName="SIMAPNDetails" />
+          <ScalarProperty Name="IEMINumber" ColumnName="IEMINumber" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteAlarmEvents">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.SiteAlarmEvent">
+        <MappingFragment StoreEntitySet="SiteAlarmEvents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="SiteEventId" ColumnName="SiteEventId" />
+          <ScalarProperty Name="AlaramTypeId" ColumnName="AlaramTypeId" />
+          <ScalarProperty Name="EventOccurred" ColumnName="EventOccurred" />
+          <ScalarProperty Name="EventResotred" ColumnName="EventResotred" />
+          <ScalarProperty Name="AlarmStatusId" ColumnName="AlarmStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteEvents">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.SiteEvent">
+        <MappingFragment StoreEntitySet="SiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="SiteEventDateTime" ColumnName="SiteEventDateTime" />
+          <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
+          <ScalarProperty Name="SiteBatteryVoltage" ColumnName="SiteBatteryVoltage" />
+          <ScalarProperty Name="MainsRVoltage" ColumnName="MainsRVoltage" />
+          <ScalarProperty Name="MainsYVoltage" ColumnName="MainsYVoltage" />
+          <ScalarProperty Name="MainsBVoltage" ColumnName="MainsBVoltage" />
+          <ScalarProperty Name="MainsRCurrent" ColumnName="MainsRCurrent" />
+          <ScalarProperty Name="MainsYCurrent" ColumnName="MainsYCurrent" />
+          <ScalarProperty Name="MainsBCurrent" ColumnName="MainsBCurrent" />
+          <ScalarProperty Name="MainsRFrequency" ColumnName="MainsRFrequency" />
+          <ScalarProperty Name="MainsYFrequency" ColumnName="MainsYFrequency" />
+          <ScalarProperty Name="MainsBFrequency" ColumnName="MainsBFrequency" />
+          <ScalarProperty Name="MainsRPhasePower" ColumnName="MainsRPhasePower" />
+          <ScalarProperty Name="MainsYPhasePower" ColumnName="MainsYPhasePower" />
+          <ScalarProperty Name="MainsBPhasePower" ColumnName="MainsBPhasePower" />
+          <ScalarProperty Name="GeneratorRVoltage" ColumnName="GeneratorRVoltage" />
+          <ScalarProperty Name="GeneratorYVoltage" ColumnName="GeneratorYVoltage" />
+          <ScalarProperty Name="GeneratorBVoltage" ColumnName="GeneratorBVoltage" />
+          <ScalarProperty Name="GeneratorRCurrent" ColumnName="GeneratorRCurrent" />
+          <ScalarProperty Name="GeneratorYCurrent" ColumnName="GeneratorYCurrent" />
+          <ScalarProperty Name="GeneratorBCurrent" ColumnName="GeneratorBCurrent" />
+          <ScalarProperty Name="GeneratorFrequency" ColumnName="GeneratorFrequency" />
+          <ScalarProperty Name="GeneratorOutputPower" ColumnName="GeneratorOutputPower" />
+          <ScalarProperty Name="RoomTemperature" ColumnName="RoomTemperature" />
+          <ScalarProperty Name="CabinetTemperature" ColumnName="CabinetTemperature" />
+          <ScalarProperty Name="GeneratorBatteryVoltage" ColumnName="GeneratorBatteryVoltage" />
+          <ScalarProperty Name="PowerFactorRPhase" ColumnName="PowerFactorRPhase" />
+          <ScalarProperty Name="PowerFactorYPhase" ColumnName="PowerFactorYPhase" />
+          <ScalarProperty Name="PowerFactorBPhase" ColumnName="PowerFactorBPhase" />
+          <ScalarProperty Name="MainsRunHours" ColumnName="MainsRunHours" />
+          <ScalarProperty Name="DgTotalRunHours" ColumnName="DgTotalRunHours" />
+          <ScalarProperty Name="DgRunningAutoRunHours" ColumnName="DgRunningAutoRunHours" />
+          <ScalarProperty Name="DgRunningManualRunHours" ColumnName="DgRunningManualRunHours" />
+          <ScalarProperty Name="BatteryRunHours" ColumnName="BatteryRunHours" />
+          <ScalarProperty Name="GeneratorNoLoadRunHours" ColumnName="GeneratorNoLoadRunHours" />
+          <ScalarProperty Name="RunHoursEb3Phase" ColumnName="RunHoursEb3Phase" />
+          <ScalarProperty Name="RunHoursEb2Phase" ColumnName="RunHoursEb2Phase" />
+          <ScalarProperty Name="RunHoursEb1Phase" ColumnName="RunHoursEb1Phase" />
+          <ScalarProperty Name="DgOnLoadRunHours" ColumnName="DgOnLoadRunHours" />
+          <ScalarProperty Name="RPhase90140RunHours" ColumnName="RPhase90140RunHours" />
+          <ScalarProperty Name="RPhase141280RunHours" ColumnName="RPhase141280RunHours" />
+          <ScalarProperty Name="RPhase281300RunHours" ColumnName="RPhase281300RunHours" />
+          <ScalarProperty Name="YPhase141280RunHours" ColumnName="YPhase141280RunHours" />
+          <ScalarProperty Name="YPhase281300RunHours" ColumnName="YPhase281300RunHours" />
+          <ScalarProperty Name="BPhase90140RunHours" ColumnName="BPhase90140RunHours" />
+          <ScalarProperty Name="YPhase90140RunHours" ColumnName="YPhase90140RunHours" />
+          <ScalarProperty Name="BPhase141280RunHours" ColumnName="BPhase141280RunHours" />
+          <ScalarProperty Name="BPhase281300RunHours" ColumnName="BPhase281300RunHours" />
+          <ScalarProperty Name="MainsEneryInKWH" ColumnName="MainsEneryInKWH" />
+          <ScalarProperty Name="DgEneryInKWH" ColumnName="DgEneryInKWH" />
+          <ScalarProperty Name="FireNSmoke" ColumnName="FireNSmoke" />
+          <ScalarProperty Name="MainsFail" ColumnName="MainsFail" />
+          <ScalarProperty Name="GeneratorFailToStart" ColumnName="GeneratorFailToStart" />
+          <ScalarProperty Name="GeneratorCommonFault" ColumnName="GeneratorCommonFault" />
+          <ScalarProperty Name="GeneratorEmergencyStop" ColumnName="GeneratorEmergencyStop" />
+          <ScalarProperty Name="GeneratorAlternatorFail" ColumnName="GeneratorAlternatorFail" />
+          <ScalarProperty Name="HCTAlarm" ColumnName="HCTAlarm" />
+          <ScalarProperty Name="GeneratorIdleRun" ColumnName="GeneratorIdleRun" />
+          <ScalarProperty Name="GeneratorFailToStop" ColumnName="GeneratorFailToStop" />
+          <ScalarProperty Name="LLOP" ColumnName="LLOP" />
+          <ScalarProperty Name="NeutralFail" ColumnName="NeutralFail" />
+          <ScalarProperty Name="GeneratorOverLoad" ColumnName="GeneratorOverLoad" />
+          <ScalarProperty Name="GeneratorMaxRunTimeOver" ColumnName="GeneratorMaxRunTimeOver" />
+          <ScalarProperty Name="AlternatorFailed" ColumnName="AlternatorFailed" />
+          <ScalarProperty Name="GeneratorBatteryLow" ColumnName="GeneratorBatteryLow" />
+          <ScalarProperty Name="LowFuelLevel" ColumnName="LowFuelLevel" />
+          <ScalarProperty Name="RoomTemperatureHigh" ColumnName="RoomTemperatureHigh" />
+          <ScalarProperty Name="SiteBatteryLow" ColumnName="SiteBatteryLow" />
+          <ScalarProperty Name="Tampering" ColumnName="Tampering" />
+          <ScalarProperty Name="CabinetTemeratureHigh" ColumnName="CabinetTemeratureHigh" />
+          <ScalarProperty Name="MainsOverLoad" ColumnName="MainsOverLoad" />
+          <ScalarProperty Name="SiteOnBattery" ColumnName="SiteOnBattery" />
+          <ScalarProperty Name="LoadOnMains" ColumnName="LoadOnMains" />
+          <ScalarProperty Name="LoadOnGenerator" ColumnName="LoadOnGenerator" />
+          <ScalarProperty Name="MainsOK" ColumnName="MainsOK" />
+          <ScalarProperty Name="GeneratorRunning" ColumnName="GeneratorRunning" />
+          <ScalarProperty Name="EBHealth" ColumnName="EBHealth" />
+          <ScalarProperty Name="GeneratorInAutoMode" ColumnName="GeneratorInAutoMode" />
+          <ScalarProperty Name="GeneratorInManualMode" ColumnName="GeneratorInManualMode" />
+          <ScalarProperty Name="RectifierPower" ColumnName="RectifierPower" />
+          <ScalarProperty Name="RectifierOutputVoltage" ColumnName="RectifierOutputVoltage" />
+          <ScalarProperty Name="BateryCapacity" ColumnName="BateryCapacity" />
+          <ScalarProperty Name="BatteryCurrent" ColumnName="BatteryCurrent" />
+          <ScalarProperty Name="RectifierOutputCurrent" ColumnName="RectifierOutputCurrent" />
+          <ScalarProperty Name="SolarCurrent_Source1Current" ColumnName="SolarCurrent_Source1Current" />
+          <ScalarProperty Name="WindCurrent_Source2Current" ColumnName="WindCurrent_Source2Current" />
+          <ScalarProperty Name="TotalLoadCurrent" ColumnName="TotalLoadCurrent" />
+          <ScalarProperty Name="LoadCurrent1" ColumnName="LoadCurrent1" />
+          <ScalarProperty Name="LoadCurrent2" ColumnName="LoadCurrent2" />
+          <ScalarProperty Name="LoadCurrent3" ColumnName="LoadCurrent3" />
+          <ScalarProperty Name="LoadCurrent4" ColumnName="LoadCurrent4" />
+          <ScalarProperty Name="LoadCurrent5" ColumnName="LoadCurrent5" />
+          <ScalarProperty Name="LoadCurrent6" ColumnName="LoadCurrent6" />
+          <ScalarProperty Name="Svr1Voltage" ColumnName="Svr1Voltage" />
+          <ScalarProperty Name="Svr1Current" ColumnName="Svr1Current" />
+          <ScalarProperty Name="RM_Redundant" ColumnName="RM_Redundant" />
+          <ScalarProperty Name="RM_Lacking" ColumnName="RM_Lacking" />
+          <ScalarProperty Name="soc" ColumnName="soc" />
+          <ScalarProperty Name="BatteryTemerature" ColumnName="BatteryTemerature" />
+          <ScalarProperty Name="FuelPercentage" ColumnName="FuelPercentage" />
+          <ScalarProperty Name="N_EVoltage" ColumnName="N_EVoltage" />
+          <ScalarProperty Name="VoltageBatteryBlock1" ColumnName="VoltageBatteryBlock1" />
+          <ScalarProperty Name="VoltageBatteryBlock2" ColumnName="VoltageBatteryBlock2" />
+          <ScalarProperty Name="VoltageBatteryBlock3" ColumnName="VoltageBatteryBlock3" />
+          <ScalarProperty Name="VoltageBatteryBlock4" ColumnName="VoltageBatteryBlock4" />
+          <ScalarProperty Name="VoltageBatteryBlock5" ColumnName="VoltageBatteryBlock5" />
+          <ScalarProperty Name="VoltageBatteryBlock6" ColumnName="VoltageBatteryBlock6" />
+          <ScalarProperty Name="VoltageBatteryBlock7" ColumnName="VoltageBatteryBlock7" />
+          <ScalarProperty Name="VoltageBatteryBlock8" ColumnName="VoltageBatteryBlock8" />
+          <ScalarProperty Name="VoltageBatteryBlock9" ColumnName="VoltageBatteryBlock9" />
+          <ScalarProperty Name="VoltageBatteryBlock10" ColumnName="VoltageBatteryBlock10" />
+          <ScalarProperty Name="VoltageBatteryBlock11" ColumnName="VoltageBatteryBlock11" />
+          <ScalarProperty Name="VoltageBatteryBlock12" ColumnName="VoltageBatteryBlock12" />
+          <ScalarProperty Name="CycleLifeConsumed" ColumnName="CycleLifeConsumed" />
+          <ScalarProperty Name="NoOfTimesRMReplaced" ColumnName="NoOfTimesRMReplaced" />
+          <ScalarProperty Name="RectifierSerialNo1" ColumnName="RectifierSerialNo1" />
+          <ScalarProperty Name="RectifierSerialNo2" ColumnName="RectifierSerialNo2" />
+          <ScalarProperty Name="RectifierSerialNo3" ColumnName="RectifierSerialNo3" />
+          <ScalarProperty Name="RectifierSerialNo4" ColumnName="RectifierSerialNo4" />
+          <ScalarProperty Name="RectifierSerialNo5" ColumnName="RectifierSerialNo5" />
+          <ScalarProperty Name="RectifierSerialNo6" ColumnName="RectifierSerialNo6" />
+          <ScalarProperty Name="SolarRunHrs" ColumnName="SolarRunHrs" />
+          <ScalarProperty Name="BatteryChargeCycleCount" ColumnName="BatteryChargeCycleCount" />
+          <ScalarProperty Name="DGTemperRunHrs" ColumnName="DGTemperRunHrs" />
+          <ScalarProperty Name="OpcoOutageRunHrs_AnyOfSixOpcos" ColumnName="OpcoOutageRunHrs_AnyOfSixOpcos" />
+          <ScalarProperty Name="Opco1OverPowerRnHrs" ColumnName="Opco1OverPowerRnHrs" />
+          <ScalarProperty Name="Opco2OverPowerRnHrs" ColumnName="Opco2OverPowerRnHrs" />
+          <ScalarProperty Name="Opco3overPowerRnHrs" ColumnName="Opco3overPowerRnHrs" />
+          <ScalarProperty Name="Opco4OverPowerRnHrs" ColumnName="Opco4OverPowerRnHrs" />
+          <ScalarProperty Name="Opco5OverPowerRnHrs" ColumnName="Opco5OverPowerRnHrs" />
+          <ScalarProperty Name="Opco6overPowerRnHrs" ColumnName="Opco6overPowerRnHrs" />
+          <ScalarProperty Name="RectifierEnergy" ColumnName="RectifierEnergy" />
+          <ScalarProperty Name="BatteryDischargeEnergy" ColumnName="BatteryDischargeEnergy" />
+          <ScalarProperty Name="TotalLoadEnergy" ColumnName="TotalLoadEnergy" />
+          <ScalarProperty Name="SolarEnergy_Source1Energy" ColumnName="SolarEnergy_Source1Energy" />
+          <ScalarProperty Name="AirconEnergy" ColumnName="AirconEnergy" />
+          <ScalarProperty Name="GasMeter_xxxxxxxx_m3_FromModbusProtocol" ColumnName="GasMeter_xxxxxxxx_m3_FromModbusProtocol" />
+          <ScalarProperty Name="ahIn" ColumnName="ahIn" />
+          <ScalarProperty Name="ahOut" ColumnName="ahOut" />
+          <ScalarProperty Name="Load1Energy" ColumnName="Load1Energy" />
+          <ScalarProperty Name="Load2Energy" ColumnName="Load2Energy" />
+          <ScalarProperty Name="Load3Energy" ColumnName="Load3Energy" />
+          <ScalarProperty Name="Load4Energy" ColumnName="Load4Energy" />
+          <ScalarProperty Name="Load5Energy" ColumnName="Load5Energy" />
+          <ScalarProperty Name="Load6Energy" ColumnName="Load6Energy" />
+          <ScalarProperty Name="BatteryChargeEnergy" ColumnName="BatteryChargeEnergy" />
+          <ScalarProperty Name="InputRPhaseEnergy" ColumnName="InputRPhaseEnergy" />
+          <ScalarProperty Name="InputYPhaseEnergy" ColumnName="InputYPhaseEnergy" />
+          <ScalarProperty Name="InputBPhaseEnergy" ColumnName="InputBPhaseEnergy" />
+          <ScalarProperty Name="InputReactiveEnergy" ColumnName="InputReactiveEnergy" />
+          <ScalarProperty Name="ShelterDoorOpen" ColumnName="ShelterDoorOpen" />
+          <ScalarProperty Name="BatteryLVD" ColumnName="BatteryLVD" />
+          <ScalarProperty Name="SingleRectifierFail" ColumnName="SingleRectifierFail" />
+          <ScalarProperty Name="MultipleRectifierFail" ColumnName="MultipleRectifierFail" />
+          <ScalarProperty Name="BatteryFuseFail" ColumnName="BatteryFuseFail" />
+          <ScalarProperty Name="LoadFuseFail" ColumnName="LoadFuseFail" />
+          <ScalarProperty Name="AC1Fail" ColumnName="AC1Fail" />
+          <ScalarProperty Name="AC2Fail" ColumnName="AC2Fail" />
+          <ScalarProperty Name="MainsOnBatteryDischarge" ColumnName="MainsOnBatteryDischarge" />
+          <ScalarProperty Name="RPSFail" ColumnName="RPSFail" />
+          <ScalarProperty Name="Major" ColumnName="Major" />
+          <ScalarProperty Name="GenFreqNotMatching" ColumnName="GenFreqNotMatching" />
+          <ScalarProperty Name="RPS1CommFail" ColumnName="RPS1CommFail" />
+          <ScalarProperty Name="RPS1Fail" ColumnName="RPS1Fail" />
+          <ScalarProperty Name="RPS2CommFail" ColumnName="RPS2CommFail" />
+          <ScalarProperty Name="RPS2Fail" ColumnName="RPS2Fail" />
+          <ScalarProperty Name="RPS3CommFail" ColumnName="RPS3CommFail" />
+          <ScalarProperty Name="RPS3Fail" ColumnName="RPS3Fail" />
+          <ScalarProperty Name="RPS4CommFail" ColumnName="RPS4CommFail" />
+          <ScalarProperty Name="RPS4Fail" ColumnName="RPS4Fail" />
+          <ScalarProperty Name="RPS5CommFail" ColumnName="RPS5CommFail" />
+          <ScalarProperty Name="RPS5Fail" ColumnName="RPS5Fail" />
+          <ScalarProperty Name="RPS6CommFail" ColumnName="RPS6CommFail" />
+          <ScalarProperty Name="RPS6Fail" ColumnName="RPS6Fail" />
+          <ScalarProperty Name="BatteryTheft" ColumnName="BatteryTheft" />
+          <ScalarProperty Name="Minor" ColumnName="Minor" />
+          <ScalarProperty Name="SPDFail" ColumnName="SPDFail" />
+          <ScalarProperty Name="GenHealthy" ColumnName="GenHealthy" />
+          <ScalarProperty Name="SVROk" ColumnName="SVROk" />
+          <ScalarProperty Name="IIPMSAutoMode" ColumnName="IIPMSAutoMode" />
+          <ScalarProperty Name="IIPMSManualMode" ColumnName="IIPMSManualMode" />
+          <ScalarProperty Name="DynamicLoadShift" ColumnName="DynamicLoadShift" />
+          <ScalarProperty Name="FLOATMode" ColumnName="FLOATMode" />
+          <ScalarProperty Name="BOOSTMode" ColumnName="BOOSTMode" />
+          <ScalarProperty Name="EQUALIZEMode" ColumnName="EQUALIZEMode" />
+          <ScalarProperty Name="DGDoorOpen" ColumnName="DGDoorOpen" />
+          <ScalarProperty Name="NeutralCurrentHigh" ColumnName="NeutralCurrentHigh" />
+          <ScalarProperty Name="C1phEnableORdisable" ColumnName="1phEnableORdisable" />
+          <ScalarProperty Name="SingleMPPTFail" ColumnName="SingleMPPTFail" />
+          <ScalarProperty Name="MultipleMPPTFail" ColumnName="MultipleMPPTFail" />
+          <ScalarProperty Name="EqualizeInProgress" ColumnName="EqualizeInProgress" />
+          <ScalarProperty Name="EqualizeNotDone" ColumnName="EqualizeNotDone" />
+          <ScalarProperty Name="CabinetSmoke_Fire" ColumnName="CabinetSmoke_Fire" />
+          <ScalarProperty Name="CabinetDoorOpen" ColumnName="CabinetDoorOpen" />
+          <ScalarProperty Name="LVDBypass" ColumnName="LVDBypass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SitePorts">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.SitePort">
+        <MappingFragment StoreEntitySet="SitePort">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="PortPurpose" ColumnName="PortPurpose" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteRemoteActions">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.SiteRemoteAction">
+        <MappingFragment StoreEntitySet="SiteRemoteAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="ActionTypeID" ColumnName="ActionTypeID" />
+          <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
+          <ScalarProperty Name="RegistationDateTime" ColumnName="RegistationDateTime" />
+          <ScalarProperty Name="ScheduleDateTime" ColumnName="ScheduleDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteRemoteActionHistories">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.SiteRemoteActionHistory">
+        <MappingFragment StoreEntitySet="SiteRemoteActionHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="ActionTypeId" ColumnName="ActionTypeId" />
+          <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
+          <ScalarProperty Name="RegistationDateTime" ColumnName="RegistationDateTime" />
+          <ScalarProperty Name="ScheduleDateTime" ColumnName="ScheduleDateTime" />
+          <ScalarProperty Name="SubmittedDateTime" ColumnName="SubmittedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteRemoteActionTypes">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.SiteRemoteActionType">
+        <MappingFragment StoreEntitySet="SiteRemoteActionType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteStatus">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.SiteStatu">
+        <MappingFragment StoreEntitySet="SiteStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrackingHistories">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.TrackingHistory">
+        <MappingFragment StoreEntitySet="TrackingHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Emai" ColumnName="Emai" />
+          <ScalarProperty Name="AccessId" ColumnName="AccessId" />
+          <ScalarProperty Name="AccessPassword" ColumnName="AccessPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccesses">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.UserAccess">
+        <MappingFragment StoreEntitySet="UserAccess">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="CircleId" ColumnName="CircleId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="AccessControlId" ColumnName="AccessControlId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProjects">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.UserProject">
+        <MappingFragment StoreEntitySet="UserProject">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSites">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.UserSite">
+        <MappingFragment StoreEntitySet="UserSite">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStatus">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.UserStatu">
+        <MappingFragment StoreEntitySet="UserStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usertbls">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.Usertbl">
+        <MappingFragment StoreEntitySet="Usertbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MobilePassCode" ColumnName="MobilePassCode" />
+          <ScalarProperty Name="UserStatusId" ColumnName="UserStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeeklySiteEvents">
+      <EntityTypeMapping TypeName="INDUS_1WAY_P1_V2Model.WeeklySiteEvent">
+        <MappingFragment StoreEntitySet="WeeklySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

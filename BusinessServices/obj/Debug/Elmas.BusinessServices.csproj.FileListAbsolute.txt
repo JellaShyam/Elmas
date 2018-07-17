@@ -1,0 +1,14 @@
+D:\Shyam\Elmas\BusinessServices\bin\Debug\BusinessServices.dll
+D:\Shyam\Elmas\BusinessServices\bin\Debug\BusinessServices.pdb
+D:\Shyam\Elmas\BusinessServices\bin\Debug\AutoMapper.dll
+D:\Shyam\Elmas\BusinessServices\bin\Debug\BusinessEntities.dll
+D:\Shyam\Elmas\BusinessServices\bin\Debug\DataModel.dll
+D:\Shyam\Elmas\BusinessServices\bin\Debug\System.Linq.Dynamic.dll
+D:\Shyam\Elmas\BusinessServices\bin\Debug\EntityFramework.dll
+D:\Shyam\Elmas\BusinessServices\bin\Debug\BusinessEntities.pdb
+D:\Shyam\Elmas\BusinessServices\bin\Debug\DataModel.pdb
+D:\Shyam\Elmas\BusinessServices\bin\Debug\AutoMapper.xml
+D:\Shyam\Elmas\BusinessServices\bin\Debug\EntityFramework.xml
+D:\Shyam\Elmas\BusinessServices\obj\Debug\Elmas.BusinessServices.csprojResolveAssemblyReference.cache
+D:\Shyam\Elmas\BusinessServices\obj\Debug\BusinessServices.dll
+D:\Shyam\Elmas\BusinessServices\obj\Debug\BusinessServices.pdb

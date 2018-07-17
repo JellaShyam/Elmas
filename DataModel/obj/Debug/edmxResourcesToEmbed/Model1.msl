@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ELMAS_UPS_V1ModelStoreContainer" CdmEntityContainer="ELMAS_UPS_V1Entities">
+    <EntitySetMapping Name="AccessControls">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.AccessControl">
+        <MappingFragment StoreEntitySet="AccessControl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Line1" ColumnName="Line1" />
+          <ScalarProperty Name="Line2" ColumnName="Line2" />
+          <ScalarProperty Name="Line3" ColumnName="Line3" />
+          <ScalarProperty Name="TalukMandal" ColumnName="TalukMandal" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="Landmark" ColumnName="Landmark" />
+          <ScalarProperty Name="ContactPersonNumber" ColumnName="ContactPersonNumber" />
+          <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+          <ScalarProperty Name="ContactEMail" ColumnName="ContactEMail" />
+          <ScalarProperty Name="Latitute" ColumnName="Latitute" />
+          <ScalarProperty Name="Longitute" ColumnName="Longitute" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlaramTypes">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.AlaramType">
+        <MappingFragment StoreEntitySet="AlaramType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlarmStatus">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.AlarmStatu">
+        <MappingFragment StoreEntitySet="AlarmStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Circles">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Circle">
+        <MappingFragment StoreEntitySet="Circle">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ControlAddress" ColumnName="ControlAddress" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DailySiteEvents">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.DailySiteEvent">
+        <MappingFragment StoreEntitySet="DailySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.District">
+        <MappingFragment StoreEntitySet="District">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="ControlAddress" ColumnName="ControlAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EndClients">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.EndClient">
+        <MappingFragment StoreEntitySet="EndClient">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="PrimeVendor" ColumnName="PrimeVendor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventTypes">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.EventType">
+        <MappingFragment StoreEntitySet="EventType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LatestSiteEvents">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.LatestSiteEvent">
+        <MappingFragment StoreEntitySet="LatestSiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonthlySiteEvents">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.MonthlySiteEvent">
+        <MappingFragment StoreEntitySet="MonthlySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Partner">
+        <MappingFragment StoreEntitySet="Partner">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortPurposes">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.PortPurpose">
+        <MappingFragment StoreEntitySet="PortPurpose">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrimeVendors">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.PrimeVendor">
+        <MappingFragment StoreEntitySet="PrimeVendor">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EndClientId" ColumnName="EndClientId" />
+          <ScalarProperty Name="AccessId" ColumnName="AccessId" />
+          <ScalarProperty Name="AccessPassword" ColumnName="AccessPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuarterlySiteEvents">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.QuarterlySiteEvent">
+        <MappingFragment StoreEntitySet="QuarterlySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CircleId" ColumnName="CircleId" />
+          <ScalarProperty Name="ControlAddress" ColumnName="ControlAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sites">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Site">
+        <MappingFragment StoreEntitySet="Site">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="SIMNumber" ColumnName="SIMNumber" />
+          <ScalarProperty Name="SIMNetworkDetails" ColumnName="SIMNetworkDetails" />
+          <ScalarProperty Name="SIMAPNDetails" ColumnName="SIMAPNDetails" />
+          <ScalarProperty Name="IEMINumber" ColumnName="IEMINumber" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteAlarmEvents">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.SiteAlarmEvent">
+        <MappingFragment StoreEntitySet="SiteAlarmEvents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="SiteEventId" ColumnName="SiteEventId" />
+          <ScalarProperty Name="AlaramTypeId" ColumnName="AlaramTypeId" />
+          <ScalarProperty Name="EventOccurred" ColumnName="EventOccurred" />
+          <ScalarProperty Name="EventResotred" ColumnName="EventResotred" />
+          <ScalarProperty Name="AlarmStatusId" ColumnName="AlarmStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteEvents">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.SiteEvent">
+        <MappingFragment StoreEntitySet="SiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EventDateTime" ColumnName="EventDateTime" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="ProductDetails" ColumnName="ProductDetails" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="MainsRVoltage" ColumnName="MainsRVoltage" />
+          <ScalarProperty Name="MainsRCurrent" ColumnName="MainsRCurrent" />
+          <ScalarProperty Name="ShowMainsRCurrentInPercentage" ColumnName="ShowMainsRCurrentInPercentage" />
+          <ScalarProperty Name="MainsRFrequency" ColumnName="MainsRFrequency" />
+          <ScalarProperty Name="EnableMainsRFrequencyHigh" ColumnName="EnableMainsRFrequencyHigh" />
+          <ScalarProperty Name="EnableMainsRFrequencyLow" ColumnName="EnableMainsRFrequencyLow" />
+          <ScalarProperty Name="EnableMainsRHigh" ColumnName="EnableMainsRHigh" />
+          <ScalarProperty Name="EnableMainsRLow" ColumnName="EnableMainsRLow" />
+          <ScalarProperty Name="EnableMainsRok" ColumnName="EnableMainsRok" />
+          <ScalarProperty Name="IsMainsRFrequencyHigh" ColumnName="IsMainsRFrequencyHigh" />
+          <ScalarProperty Name="IsMainsRFrequencyLow" ColumnName="IsMainsRFrequencyLow" />
+          <ScalarProperty Name="IsMainsRHigh" ColumnName="IsMainsRHigh" />
+          <ScalarProperty Name="IsMainsRLow" ColumnName="IsMainsRLow" />
+          <ScalarProperty Name="IsMainsRok" ColumnName="IsMainsRok" />
+          <ScalarProperty Name="MainsYVoltage" ColumnName="MainsYVoltage" />
+          <ScalarProperty Name="MainsYCurrent" ColumnName="MainsYCurrent" />
+          <ScalarProperty Name="ShowMainsYCurrentInPercentage" ColumnName="ShowMainsYCurrentInPercentage" />
+          <ScalarProperty Name="MainsYFrequency" ColumnName="MainsYFrequency" />
+          <ScalarProperty Name="EnableMainsYFrequencyHigh" ColumnName="EnableMainsYFrequencyHigh" />
+          <ScalarProperty Name="EnableMainsYFrequencyLow" ColumnName="EnableMainsYFrequencyLow" />
+          <ScalarProperty Name="EnableMainsYHigh" ColumnName="EnableMainsYHigh" />
+          <ScalarProperty Name="EnableMainsYLow" ColumnName="EnableMainsYLow" />
+          <ScalarProperty Name="EnableMainsYok" ColumnName="EnableMainsYok" />
+          <ScalarProperty Name="IsMainsYFrequencyHigh" ColumnName="IsMainsYFrequencyHigh" />
+          <ScalarProperty Name="IsMainsYFrequencyLow" ColumnName="IsMainsYFrequencyLow" />
+          <ScalarProperty Name="IsMainsYHigh" ColumnName="IsMainsYHigh" />
+          <ScalarProperty Name="IsMainsYLow" ColumnName="IsMainsYLow" />
+          <ScalarProperty Name="IsMainsYok" ColumnName="IsMainsYok" />
+          <ScalarProperty Name="MainsBVoltage" ColumnName="MainsBVoltage" />
+          <ScalarProperty Name="MainsBCurrent" ColumnName="MainsBCurrent" />
+          <ScalarProperty Name="ShowMainsBCurrentInPercentage" ColumnName="ShowMainsBCurrentInPercentage" />
+          <ScalarProperty Name="MainsBFrequency" ColumnName="MainsBFrequency" />
+          <ScalarProperty Name="EnableMainsBFrequencyHigh" ColumnName="EnableMainsBFrequencyHigh" />
+          <ScalarProperty Name="EnableMainsBFrequencyLow" ColumnName="EnableMainsBFrequencyLow" />
+          <ScalarProperty Name="EnableMainsBHigh" ColumnName="EnableMainsBHigh" />
+          <ScalarProperty Name="EnableMainsBLow" ColumnName="EnableMainsBLow" />
+          <ScalarProperty Name="EnableMainsBok" ColumnName="EnableMainsBok" />
+          <ScalarProperty Name="IsMainsBFrequencyHigh" ColumnName="IsMainsBFrequencyHigh" />
+          <ScalarProperty Name="IsMainsBFrequencyLow" ColumnName="IsMainsBFrequencyLow" />
+          <ScalarProperty Name="IsMainsBHigh" ColumnName="IsMainsBHigh" />
+          <ScalarProperty Name="IsMainsBLow" ColumnName="IsMainsBLow" />
+          <ScalarProperty Name="IsMainsBok" ColumnName="IsMainsBok" />
+          <ScalarProperty Name="InverterRVoltage" ColumnName="InverterRVoltage" />
+          <ScalarProperty Name="InverterRCurrent" ColumnName="InverterRCurrent" />
+          <ScalarProperty Name="ShowInverterRCurrentInPercentage" ColumnName="ShowInverterRCurrentInPercentage" />
+          <ScalarProperty Name="InverterRFrequency" ColumnName="InverterRFrequency" />
+          <ScalarProperty Name="EnableInverterRFrequencyHigh" ColumnName="EnableInverterRFrequencyHigh" />
+          <ScalarProperty Name="EnableInverterRFrequencyLow" ColumnName="EnableInverterRFrequencyLow" />
+          <ScalarProperty Name="EnableInverterRHigh" ColumnName="EnableInverterRHigh" />
+          <ScalarProperty Name="EnableInverterRLow" ColumnName="EnableInverterRLow" />
+          <ScalarProperty Name="EnableInverterRok" ColumnName="EnableInverterRok" />
+          <ScalarProperty Name="IsInverterRFrequencyHigh" ColumnName="IsInverterRFrequencyHigh" />
+          <ScalarProperty Name="IsInverterRFrequencyLow" ColumnName="IsInverterRFrequencyLow" />
+          <ScalarProperty Name="IsInverterRHigh" ColumnName="IsInverterRHigh" />
+          <ScalarProperty Name="IsInverterRLow" ColumnName="IsInverterRLow" />
+          <ScalarProperty Name="IsInverterRok" ColumnName="IsInverterRok" />
+          <ScalarProperty Name="InverterYVoltage" ColumnName="InverterYVoltage" />
+          <ScalarProperty Name="InverterYCurrent" ColumnName="InverterYCurrent" />
+          <ScalarProperty Name="ShowInverterYCurrentInPercentage" ColumnName="ShowInverterYCurrentInPercentage" />
+          <ScalarProperty Name="InverterYFrequency" ColumnName="InverterYFrequency" />
+          <ScalarProperty Name="EnableInverterYFrequencyHigh" ColumnName="EnableInverterYFrequencyHigh" />
+          <ScalarProperty Name="EnableInverterYFrequencyLow" ColumnName="EnableInverterYFrequencyLow" />
+          <ScalarProperty Name="EnableInverterYHigh" ColumnName="EnableInverterYHigh" />
+          <ScalarProperty Name="EnableInverterYLow" ColumnName="EnableInverterYLow" />
+          <ScalarProperty Name="EnableInverterYok" ColumnName="EnableInverterYok" />
+          <ScalarProperty Name="IsInverterYFrequencyHigh" ColumnName="IsInverterYFrequencyHigh" />
+          <ScalarProperty Name="IsInverterYFrequencyLow" ColumnName="IsInverterYFrequencyLow" />
+          <ScalarProperty Name="IsInverterYHigh" ColumnName="IsInverterYHigh" />
+          <ScalarProperty Name="IsInverterYLow" ColumnName="IsInverterYLow" />
+          <ScalarProperty Name="IsInverterYok" ColumnName="IsInverterYok" />
+          <ScalarProperty Name="InverterBVoltage" ColumnName="InverterBVoltage" />
+          <ScalarProperty Name="InverterBCurrent" ColumnName="InverterBCurrent" />
+          <ScalarProperty Name="ShowInverterBCurrentInPercentage" ColumnName="ShowInverterBCurrentInPercentage" />
+          <ScalarProperty Name="InverterBFrequency" ColumnName="InverterBFrequency" />
+          <ScalarProperty Name="EnableInverterBFrequencyHigh" ColumnName="EnableInverterBFrequencyHigh" />
+          <ScalarProperty Name="EnableInverterBFrequencyLow" ColumnName="EnableInverterBFrequencyLow" />
+          <ScalarProperty Name="EnableInverterBHigh" ColumnName="EnableInverterBHigh" />
+          <ScalarProperty Name="EnableInverterBLow" ColumnName="EnableInverterBLow" />
+          <ScalarProperty Name="EnableInverterBok" ColumnName="EnableInverterBok" />
+          <ScalarProperty Name="IsInverterBFrequencyHigh" ColumnName="IsInverterBFrequencyHigh" />
+          <ScalarProperty Name="IsInverterBFrequencyLow" ColumnName="IsInverterBFrequencyLow" />
+          <ScalarProperty Name="IsInverterBHigh" ColumnName="IsInverterBHigh" />
+          <ScalarProperty Name="IsInverterBLow" ColumnName="IsInverterBLow" />
+          <ScalarProperty Name="IsInverterBok" ColumnName="IsInverterBok" />
+          <ScalarProperty Name="BatteryVoltage" ColumnName="BatteryVoltage" />
+          <ScalarProperty Name="BatterySolarChargingCurrent" ColumnName="BatterySolarChargingCurrent" />
+          <ScalarProperty Name="BatteryGridChargingCurrent" ColumnName="BatteryGridChargingCurrent" />
+          <ScalarProperty Name="BatteryDischargingCurrent" ColumnName="BatteryDischargingCurrent" />
+          <ScalarProperty Name="EnableBatterySolarChargerOn" ColumnName="EnableBatterySolarChargerOn" />
+          <ScalarProperty Name="EnableBatteryGridChargerOn" ColumnName="EnableBatteryGridChargerOn" />
+          <ScalarProperty Name="EnableBatteryDischargingOn" ColumnName="EnableBatteryDischargingOn" />
+          <ScalarProperty Name="EnableBatteryHigh" ColumnName="EnableBatteryHigh" />
+          <ScalarProperty Name="EnableBatteryLow" ColumnName="EnableBatteryLow" />
+          <ScalarProperty Name="EnableBatteryOk" ColumnName="EnableBatteryOk" />
+          <ScalarProperty Name="IsBatterySolarChargerOn" ColumnName="IsBatterySolarChargerOn" />
+          <ScalarProperty Name="IsBatteryGridChargerOn" ColumnName="IsBatteryGridChargerOn" />
+          <ScalarProperty Name="IsBatteryDischargingOn" ColumnName="IsBatteryDischargingOn" />
+          <ScalarProperty Name="IsBatteryHigh" ColumnName="IsBatteryHigh" />
+          <ScalarProperty Name="IsBatteryLow" ColumnName="IsBatteryLow" />
+          <ScalarProperty Name="IsBatteryOk" ColumnName="IsBatteryOk" />
+          <ScalarProperty Name="SolarVoltage" ColumnName="SolarVoltage" />
+          <ScalarProperty Name="SolarCurrent" ColumnName="SolarCurrent" />
+          <ScalarProperty Name="SolarGeneration" ColumnName="SolarGeneration" />
+          <ScalarProperty Name="EnableSolarOverCurrent" ColumnName="EnableSolarOverCurrent" />
+          <ScalarProperty Name="EnableSolarHigh" ColumnName="EnableSolarHigh" />
+          <ScalarProperty Name="EnableSolarLow" ColumnName="EnableSolarLow" />
+          <ScalarProperty Name="EnableSolarOk" ColumnName="EnableSolarOk" />
+          <ScalarProperty Name="IsSolarOverCurrent" ColumnName="IsSolarOverCurrent" />
+          <ScalarProperty Name="IsSolarHigh" ColumnName="IsSolarHigh" />
+          <ScalarProperty Name="IsSolarLow" ColumnName="IsSolarLow" />
+          <ScalarProperty Name="IsSolarOk" ColumnName="IsSolarOk" />
+          <ScalarProperty Name="EnableInverterBled" ColumnName="EnableInverterBled" />
+          <ScalarProperty Name="EnableInverterYled" ColumnName="EnableInverterYled" />
+          <ScalarProperty Name="EnableInverterRled" ColumnName="EnableInverterRled" />
+          <ScalarProperty Name="EnableMainsBled" ColumnName="EnableMainsBled" />
+          <ScalarProperty Name="EnableMainsYled" ColumnName="EnableMainsYled" />
+          <ScalarProperty Name="EnableMainsRled" ColumnName="EnableMainsRled" />
+          <ScalarProperty Name="IsInverterBled" ColumnName="IsInverterBled" />
+          <ScalarProperty Name="IsInverterYled" ColumnName="IsInverterYled" />
+          <ScalarProperty Name="IsInverterRled" ColumnName="IsInverterRled" />
+          <ScalarProperty Name="IsMainsBled" ColumnName="IsMainsBled" />
+          <ScalarProperty Name="IsMainsYled" ColumnName="IsMainsYled" />
+          <ScalarProperty Name="IsMainsRled" ColumnName="IsMainsRled" />
+          <ScalarProperty Name="EnableBatteryFaultLed" ColumnName="EnableBatteryFaultLed" />
+          <ScalarProperty Name="EnableLoadFaultLed" ColumnName="EnableLoadFaultLed" />
+          <ScalarProperty Name="EnableSolarChargerLed" ColumnName="EnableSolarChargerLed" />
+          <ScalarProperty Name="EnableGridChargerLed" ColumnName="EnableGridChargerLed" />
+          <ScalarProperty Name="IsBatteryFaultLed" ColumnName="IsBatteryFaultLed" />
+          <ScalarProperty Name="IsLoadFaultLed" ColumnName="IsLoadFaultLed" />
+          <ScalarProperty Name="IsSolarChargerLed" ColumnName="IsSolarChargerLed" />
+          <ScalarProperty Name="IsGridChargerLed" ColumnName="IsGridChargerLed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SitePorts">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.SitePort">
+        <MappingFragment StoreEntitySet="SitePort">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="PortPurpose" ColumnName="PortPurpose" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteRemoteActions">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.SiteRemoteAction">
+        <MappingFragment StoreEntitySet="SiteRemoteAction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="ActionTypeID" ColumnName="ActionTypeID" />
+          <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
+          <ScalarProperty Name="RegistationDateTime" ColumnName="RegistationDateTime" />
+          <ScalarProperty Name="ScheduleDateTime" ColumnName="ScheduleDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteRemoteActionHistories">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.SiteRemoteActionHistory">
+        <MappingFragment StoreEntitySet="SiteRemoteActionHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="ActionTypeId" ColumnName="ActionTypeId" />
+          <ScalarProperty Name="ActionValue" ColumnName="ActionValue" />
+          <ScalarProperty Name="RegistationDateTime" ColumnName="RegistationDateTime" />
+          <ScalarProperty Name="ScheduleDateTime" ColumnName="ScheduleDateTime" />
+          <ScalarProperty Name="SubmittedDateTime" ColumnName="SubmittedDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteRemoteActionTypes">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.SiteRemoteActionType">
+        <MappingFragment StoreEntitySet="SiteRemoteActionType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SiteStatus">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.SiteStatu">
+        <MappingFragment StoreEntitySet="SiteStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.State">
+        <MappingFragment StoreEntitySet="State">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrackingHistories">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.TrackingHistory">
+        <MappingFragment StoreEntitySet="TrackingHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Emai" ColumnName="Emai" />
+          <ScalarProperty Name="AccessId" ColumnName="AccessId" />
+          <ScalarProperty Name="AccessPassword" ColumnName="AccessPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserAccesses">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.UserAccess">
+        <MappingFragment StoreEntitySet="UserAccess">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
+          <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+          <ScalarProperty Name="CircleId" ColumnName="CircleId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="AccessControlId" ColumnName="AccessControlId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserProjects">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.UserProject">
+        <MappingFragment StoreEntitySet="UserProject">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Project" ColumnName="Project" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserSites">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.UserSite">
+        <MappingFragment StoreEntitySet="UserSite">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserStatus">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.UserStatu">
+        <MappingFragment StoreEntitySet="UserStatus">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usertbls">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.Usertbl">
+        <MappingFragment StoreEntitySet="Usertbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MobilePassCode" ColumnName="MobilePassCode" />
+          <ScalarProperty Name="UserStatusId" ColumnName="UserStatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WeeklySiteEvents">
+      <EntityTypeMapping TypeName="ELMAS_UPS_V1Model.WeeklySiteEvent">
+        <MappingFragment StoreEntitySet="WeeklySiteEvent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+          <ScalarProperty Name="EventId" ColumnName="EventId" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

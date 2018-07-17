@@ -1,0 +1,173 @@
+Message :Expected a "{" but found a "<".  Block statements must be enclosed in "{" and "}".  You cannot use single-statement control-flow statements in CSHTML pages. For example, the following is not allowed:
+
+@if(isLoggedIn)
+    <p>Hello, @user</p>
+
+Instead, wrap the contents of the block in "{}":
+
+@if(isLoggedIn) {
+    <p>Hello, @user</p>
+}
+<br/>
+Date :04/09/2018 12:01:35
+
+-----------------------------------------------------------------------------
+
+Message :The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_Layout.cshtml": "Scripts".<br/>
+Date :04/09/2018 14:18:30
+
+-----------------------------------------------------------------------------
+
+Message :The following sections have been defined but have not been rendered for the layout page "~/Views/Shared/_Layout.cshtml": "Scripts".<br/>
+Date :04/09/2018 14:19:40
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/19/2018 15:18:01
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/19/2018 15:21:21
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/19/2018 15:24:30
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/19/2018 15:29:02
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/19/2018 15:31:34
+
+-----------------------------------------------------------------------------
+
+Message :One or more errors occurred.<br/>
+Date :04/21/2018 14:41:19
+
+-----------------------------------------------------------------------------
+
+Message :One or more errors occurred.<br/>
+Date :04/21/2018 15:14:00
+
+-----------------------------------------------------------------------------
+
+Message :One or more errors occurred.<br/>
+Date :04/21/2018 15:14:11
+
+-----------------------------------------------------------------------------
+
+Message :One or more errors occurred.<br/>
+Date :04/21/2018 15:16:50
+
+-----------------------------------------------------------------------------
+
+Message :One or more errors occurred.<br/>
+Date :04/21/2018 15:18:02
+
+-----------------------------------------------------------------------------
+
+Message :One or more errors occurred.<br/>
+Date :04/21/2018 15:19:37
+
+-----------------------------------------------------------------------------
+
+Message :One or more errors occurred.<br/>
+Date :04/21/2018 15:19:49
+
+-----------------------------------------------------------------------------
+
+Message :Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'BusinessEntities.LatestSiteEventEntity' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.<br/>
+Date :04/23/2018 17:32:13
+
+-----------------------------------------------------------------------------
+
+Message :Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'BusinessEntities.LatestSiteEventEntity' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.<br/>
+Date :04/23/2018 17:32:30
+
+-----------------------------------------------------------------------------
+
+Message :Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'BusinessEntities.LatestSiteEventEntity' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.<br/>
+Date :04/23/2018 17:34:51
+
+-----------------------------------------------------------------------------
+
+Message :Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'BusinessEntities.LatestSiteEventEntity' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.<br/>
+Date :04/23/2018 17:36:35
+
+-----------------------------------------------------------------------------
+
+Message :Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'BusinessEntities.LatestSiteEventEntity' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.<br/>
+Date :04/23/2018 17:37:19
+
+-----------------------------------------------------------------------------
+
+Message :Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'BusinessEntities.LatestSiteEventEntity' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.
+To fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.
+Path 'Message', line 1, position 11.<br/>
+Date :04/23/2018 17:50:18
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/23/2018 17:57:34
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/23/2018 17:57:37
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/23/2018 17:57:45
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/23/2018 17:58:26
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/23/2018 18:08:15
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/23/2018 18:08:28
+
+-----------------------------------------------------------------------------
+
+Message :Object reference not set to an instance of an object.<br/>
+Date :04/23/2018 18:09:27
+
+-----------------------------------------------------------------------------
+
+Message :End of file or an unexpected character was reached before the "hr" tag could be parsed.  Elements inside markup blocks must be complete. They must either be self-closing ("<br />") or have matching end tags ("<p>Hello</p>").  If you intended to display a "<" character, use the "&lt;" HTML entity.
+<br/>
+Date :04/24/2018 15:40:05
+
+-----------------------------------------------------------------------------
+
+Message :d:\Shyam\Elmas\Indus.MVCUI\Views\LatestSiteEvents\GetSiteInfo.cshtml(100): error CS0103: The name 'item' does not exist in the current context<br/>
+Date :04/25/2018 12:49:30
+
+-----------------------------------------------------------------------------
+

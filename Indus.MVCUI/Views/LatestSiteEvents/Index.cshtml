@@ -1,0 +1,595 @@
+﻿@using BusinessEntities
+@model PagedLatestSiteEvent
+
+@helper CurrentUnit(bool valueStatus)
+{
+    if (valueStatus)
+    {
+    <span class="text-danger fs12">%</span>
+    }
+    else
+    {
+    <span class="text-danger fs12">A</span>
+    }
+}
+
+@helper SelectIcon(bool value,string propertyName,bool red)
+{
+    var val = propertyName;
+    val = string.Concat(val.Select(x => Char.IsUpper(x) ? " " + x : x.ToString())).TrimStart(' ');
+    var firstletter = val.Split(new char[] {' '}).Aggregate("", (current, c) => current + c[0]);
+    firstletter = firstletter.ToUpper();
+    <div class="col-lg-1 col-xs-2">
+        <table style="text-align: center">
+            <tr><td>@firstletter</td></tr>
+            <tr>
+                <td title="@val">
+                    @if (value)
+                        {
+                            if (red)
+                            {
+                        <span class="fa fa-circle text-danger fs30"></span>
+                            }
+                            else
+                            {
+                        <span class="fa fa-circle text-success fs30"></span>
+                            }
+                        }
+                        else
+                        {
+                        <span class="fa fa-circle text-gray fs30"></span>
+                        }
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+}
+
+@{
+    SortingPagingInfo info = ViewBag.SortingPagingInfo;
+    var siteIdlist = "";
+}
+
+<link href="~/Content/tooltipster.css" rel="stylesheet" />
+<script src="~/Scripts/bootpage.min.js"></script>
+<link href="~/Scripts/jquery_ui/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/Tosatr.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm("Index", "LatestSiteEvents", FormMethod.Post))
+{
+    @Html.Hidden("SortField", info.SortField)
+    @Html.Hidden("SortDirection", info.SortDirection)
+    @Html.Hidden("PageCount", info.PageCount)
+    @Html.Hidden("PageSize", info.PageSize)
+    @Html.Hidden("CurrentPageIndex", info.CurrentPageIndex)
+    @Html.Hidden("siteIdlist", siteIdlist)
+
+    foreach (var item in Model.MinifiedLatestSiteEvents)
+    {
+    <div class="box">
+        <div class="box-header with-border">
+            <div class="col-md-5">
+                <h3 class="box-title">@item.SiteEventEntity.SiteEntity.SiteId</h3>
+            </div>
+            <div class="col-md-7">
+                @item.EventDate
+                <div class="box-tools pull-right">
+                    <a href="#" class="fa fa-refresh ajax"></a>&nbsp;
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="" data-original-title="Collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="box-body">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading bg-red" style="padding: 6px;">
+                            <i class="panel-title fa fa-2x text-danger fa-plug" style="float: right;"></i>
+                            <span class="panel-title">Mains</span>
+                        </div>
+                        <div class="panel-body" style="padding: 5px">
+                            <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                                <div class="panel panel-default" style="margin-bottom: 0px">
+                                    <div class="panel-heading" style="padding:6px">
+                                        <span class="panel-title">Voltage</span>
+                                    </div>
+                                    <div class="panel-body" style="padding: 0px">
+                                        <table width="100%" class="text-center fs20">
+                                            <tbody>
+                                                <tr style="background-color: #D3D3D3"><td>R</td><td>Y</td><td>B</td></tr>
+                                                <tr>
+                                                    <td>@item.SiteEventEntity.MainsRVoltage.ToString("#.#")<span class="text-danger fs12">V</span></td>
+                                                    <td>@item.SiteEventEntity.MainsYVoltage.ToString("#.#") <span class="text-danger fs12">V</span></td>
+                                                    <td>@item.SiteEventEntity.MainsBVoltage.ToString("#.#") <span class="text-danger fs12">V</span></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                                <div class="panel panel-default" style="margin-bottom: 0px">
+                                    <div class="panel-heading" style="padding:6px">
+                                        <span class="panel-title">Current</span>
+                                    </div>
+                                    <div class="panel-body" style="padding: 0px">
+                                        <table width="100%" class="text-center fs20">
+                                            <tbody>
+                                                <tr style="background-color: #D3D3D3"><td>R</td><td>Y</td><td>B</td></tr>
+                                                <tr>
+                                                    <td>
+                                                        @item.SiteEventEntity.MainsRCurrent.ToString("#.#")
+                                                        @CurrentUnit(@item.SiteEventEntity.ShowMainsRCurrentInPercentage)
+                                                    </td>
+                                                    <td>
+                                                        @item.SiteEventEntity.MainsYCurrent.ToString("#.#")
+                                                        @CurrentUnit(@item.SiteEventEntity.ShowMainsYCurrentInPercentage)
+                                                    </td>
+                                                    <td>
+                                                        @item.SiteEventEntity.MainsBCurrent.ToString("#.#")
+                                                        @CurrentUnit(@item.SiteEventEntity.ShowMainsBCurrentInPercentage)
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                                <div class="panel panel-default" style="margin-bottom: 0px">
+                                    <div class="panel-heading" style="padding:6px">
+                                        <span class="panel-title">Frequency</span>
+                                    </div>
+                                    <div class="panel-body" style="padding: 0px">
+                                        <table width="100%" class="text-center fs20">
+                                            <tbody>
+                                            <tr style="background-color: #D3D3D3"><td>R</td><td>Y</td><td>B</td></tr>
+                                            <tr>
+                                                <td> @item.SiteEventEntity.MainsRFrequency.ToString("#.#") <span class="text-danger fs12">Hz</span></td>
+                                                <td> @item.SiteEventEntity.MainsYFrequency.ToString("#.#") <span class="text-danger fs12">Hz</span></td>
+                                                <td> @item.SiteEventEntity.MainsBFrequency.ToString("#.#") <span class="text-danger fs12">Hz</span></td>
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                @if (item.SiteEventEntity.EnableMainsRFrequencyHigh)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsRFrequencyHigh,"MainsRFrequencyHigh",true)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsRFrequencyLow)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsRFrequencyLow,"MainsRFrequencyLow",false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsRHigh)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsRHigh,"MainsRHigh",false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsRLow)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsRLow,"MainsRLow",false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsRok)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsRok,"MainsROk",false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsYFrequencyHigh)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsYFrequencyHigh, "MainsYFrequencyHigh", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsYFrequencyLow)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsYFrequencyLow, "MainsYFrequencyLow", true)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsYHigh)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsYHigh, "MainsYHigh", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsYLow)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsYLow, "MainsYLow", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsYok)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsYok, "MainsYOk", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsBFrequencyHigh)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsBFrequencyHigh, "MainsBFrequencyHigh", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsBFrequencyLow)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsBFrequencyLow, "MainsBFrequencyLow", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsBHigh)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsBHigh, "MainsBHigh", true)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsBLow)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsBLow, "MainsBLow", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsBok)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsBok, "MainsBOk", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsBled)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsBled, "MainsBLed", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsYled)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsYled, "MainsYLed", false)
+                                }
+                                @if (item.SiteEventEntity.EnableMainsRled)
+                                {
+                                    @SelectIcon(item.SiteEventEntity.IsMainsRled, "MainsRLed", false)
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            <div class="col-md-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading bg-green" style="padding: 6px;">
+                        <i class="panel-title fa fa-2x text-success fa-random" style="float: right;margin-top:-2px"></i>
+                        <span class="panel-title">Inverter</span>
+                    </div>
+                    <div class="panel-body" style="padding: 5px">
+
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Voltage</span>
+                                </div>
+                                <div class="panel-body" style="padding: 0px">
+                                    <table width="100%" class="text-center fs20">
+                                        <tbody>
+                                        <tr style="background-color: #D3D3D3"><td>R</td><td>Y</td><td>B</td></tr>
+                                        <tr>
+                                            <td> @item.SiteEventEntity.InverterRVoltage.ToString("#.#") <span class="text-danger fs12">V</span></td>
+                                            <td> @item.SiteEventEntity.InverterYVoltage.ToString("#.#") <span class="text-danger fs12">V</span></td>
+                                            <td> @item.SiteEventEntity.InverterBVoltage.ToString("#.#") <span class="text-danger fs12">V</span></td>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Current</span>
+                                </div>
+                                <div class="panel-body" style="padding: 0px">
+                                    <table width="100%" class="text-center fs20">
+                                        <tbody>
+                                            <tr style="background-color: #D3D3D3"><td>R</td><td>Y</td><td>B</td></tr>
+                                            <tr>
+                                                <td>
+                                                    @item.SiteEventEntity.InverterRCurrent.ToString("#.#")
+                                                    @CurrentUnit(@item.SiteEventEntity.ShowInverterRCurrentInPercentage)
+                                                </td>
+                                                <td>
+                                                    @item.SiteEventEntity.InverterYCurrent.ToString("#.#")
+                                                    @CurrentUnit(@item.SiteEventEntity.ShowInverterYCurrentInPercentage)
+                                                </td>
+                                                <td>
+                                                    @item.SiteEventEntity.InverterBCurrent.ToString("#.#")
+                                                    @CurrentUnit(@item.SiteEventEntity.ShowInverterBCurrentInPercentage)
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Frequency</span>
+                                </div>
+                                <div class="panel-body" style="padding: 0px">
+                                    <table width="100%" class="text-center fs20">
+                                        <tbody>
+                                            <tr style="background-color: #D3D3D3"><td>R</td><td>Y</td><td>B</td></tr>
+                                            <tr>
+                                                <td> @item.SiteEventEntity.InverterRFrequency.ToString("#.#") <span class="text-danger fs12">Hz</span></td>
+                                                <td> @item.SiteEventEntity.InverterYFrequency.ToString("#.#") <span class="text-danger fs12">Hz</span></td>
+                                                <td> @item.SiteEventEntity.InverterBFrequency.ToString("#.#") <span class="text-danger fs12">Hz</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>                                               
+                        <div class="row">
+                            @if (item.SiteEventEntity.EnableInverterRFrequencyHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterRFrequencyHigh, "InverterRFrequencyHigh", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterRFrequencyLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterRFrequencyLow, "InverterRFrequencyLow", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterRHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterRHigh, "InverterRHigh", true)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterRLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterRLow, "InverterRLow", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterRok)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterRok, "InverterROk", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterYFrequencyHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterYFrequencyHigh, "InverterYFrequencyHigh", true)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterYFrequencyLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterYFrequencyLow, "InverterYFrequencyLow", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterYHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterYHigh, "InverterYHigh", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterYLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterYLow, "InverterYLow", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterYok)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterYok, "InverterYOk", true)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterBFrequencyHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterBFrequencyHigh, "InverterBFrequencyHigh", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterBFrequencyLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterBFrequencyLow, "InverterBFrequencyLow", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterBHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterBHigh, "InverterBHigh", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterBLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterBLow, "InverterBLow", true)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterBok)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterBok, "InverterBOk", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterBled)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterBled, "InverterBLed", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterYled)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterYled, "InverterYLed", false)
+                            }
+                            @if (item.SiteEventEntity.EnableInverterRled)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsInverterRled, "InverterRLed", true)
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-info">
+                    <div class="panel-heading bg-aqua" style="padding: 6px;">
+                        <i class="panel-title fa fa-2x text-success fa-battery-three-quarters" style="float: right;margin-top:-2px"></i>
+                        <span class="panel-title">Battery</span>
+                    </div>
+                    <div class="panel-body" style="padding: 5px">
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Voltage</span>
+                                </div>
+                                <div class="panel-body text-center fs30" style="padding: 0px">
+                                    @item.SiteEventEntity.BatteryVoltage
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-8 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Current</span>
+                                </div>
+                                <div class="panel-body" style="padding: 0px">
+                                    <table width="100%" class="text-center fs20">
+                                        <tbody>
+                                            <tr style="background-color: #D3D3D3;font-size: 12px"><td>Solar Charging</td><td>Grid Charging</td><td>Discharging</td></tr>
+                                            <tr>
+                                                <td>
+                                                    @item.SiteEventEntity.BatterySolarChargingCurrent
+                                                </td>
+                                                <td>
+                                                    @item.SiteEventEntity.BatteryGridChargingCurrent
+                                                </td>
+                                                <td>
+                                                    @item.SiteEventEntity.BatteryDischargingCurrent
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            @if (item.SiteEventEntity.EnableBatterySolarChargerOn)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsBatterySolarChargerOn, "BatterySolarChargerOn", false)
+                            }
+                            @if (item.SiteEventEntity.EnableBatteryGridChargerOn)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsBatteryGridChargerOn, "BatteryGridChargerOn", false)
+                            }
+                            @if (item.SiteEventEntity.EnableBatteryDischargingOn)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsBatteryDischargingOn, "BatteryDischargingOn", true)
+                            }
+                            @if (item.SiteEventEntity.EnableBatteryHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsBatteryHigh, "BatteryHigh", false)
+                            }
+                            @if (item.SiteEventEntity.EnableBatteryLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsBatteryLow, "BatteryLow", true)
+                            }
+                            @if (item.SiteEventEntity.EnableBatteryOk)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsBatteryOk, "BatteryOk", false)
+                            }
+                            @if (item.SiteEventEntity.EnableBatteryFaultLed)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsBatteryFaultLed, "BatteryFaultLed", true)
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading bg-gray" style="padding: 6px;">
+                        <i class="fa fa-2x fa-windows" style="float: right;margin-top:-2px"></i>
+                        <span class="panel-title">Solar</span>
+                    </div>
+                    <div class="panel-body" style="padding: 5px">
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Voltage</span>
+                                </div>
+                                <div class="panel-body text-center fs30" style="padding: 0px">
+                                    @item.SiteEventEntity.SolarVoltage
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Current</span>
+                                </div>
+                                <div class="panel-body text-center fs30" style="padding: 0px">
+                                    @item.SiteEventEntity.SolarCurrent
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4 ryb_Blocks">
+                            <div class="panel panel-default" style="margin-bottom: 0px">
+                                <div class="panel-heading" style="padding:6px">
+                                    <span class="panel-title">Generation</span>
+                                </div>
+                                <div class="panel-body text-center fs30" style="padding: 0px">
+                                    @item.SiteEventEntity.SolarGeneration
+                                </div>
+                            </div>
+                        </div>                        
+                        <div class="row">
+                            @if (item.SiteEventEntity.EnableSolarOverCurrent)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsSolarOverCurrent, "SolarOverCurrent", false)
+                            }
+                            @if (item.SiteEventEntity.EnableSolarHigh)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsSolarHigh, "SolarHigh", false)
+                            }
+                            @if (item.SiteEventEntity.EnableSolarLow)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsSolarLow, "SolarLow", true)
+                            }
+                            @if (item.SiteEventEntity.EnableSolarOk)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsSolarOk, "SolarOk", false)
+                            }
+                            @if (item.SiteEventEntity.EnableSolarChargerLed)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsSolarChargerLed, "SolarChargerLed", true)
+                            }
+ 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading" style="padding: 6px">Alarms</div>
+                        <div class="panel-body">                                                                                                                                                                                                  
+                            @if (item.SiteEventEntity.EnableLoadFaultLed)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsLoadFaultLed, "LoadFaultLed", false)
+                            }
+                            
+                            @if (item.SiteEventEntity.EnableGridChargerLed)
+                            {
+                                @SelectIcon(item.SiteEventEntity.IsGridChargerLed, "GridChargerLed", false)
+                            }
+                        </div>                       
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+
+        <!-- /.box-body -->
+    </div>
+
+    }
+
+
+    //Tooltip Template for Site Id Search
+
+}
+
+
+
+@section Scripts
+{
+   
+    <script src="~/Scripts/tooltipster.js"></script>
+    <script src="~/Scripts/jquery_ui/jquery-ui.min.js"></script>
+    <script src="~/Scripts/Toastr.min.js"></script>
+    <script type="text/javascript">
+        
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        //toastr.info("Welcome Shyam!");
+    </script>
+   
+}

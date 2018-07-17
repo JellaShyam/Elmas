@@ -1,0 +1,1307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ELMAS_UPS_V1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccessControl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Line1" Type="varchar" MaxLength="80" />
+    <Property Name="Line2" Type="varchar" MaxLength="80" />
+    <Property Name="Line3" Type="varchar" MaxLength="80" />
+    <Property Name="TalukMandal" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="DistrictId" Type="int" Nullable="false" />
+    <Property Name="Landmark" Type="varchar" MaxLength="256" />
+    <Property Name="ContactPersonNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ContactPersonName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="ContactEMail" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Latitute" Type="numeric" Precision="12" Scale="6" Nullable="false" />
+    <Property Name="Longitute" Type="numeric" Precision="12" Scale="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlaramType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="360" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AlarmStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="360" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Circle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="ControlAddress" Type="int" Nullable="false" />
+    <Property Name="ShortName" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="PartnerId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="512" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DailySiteEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="EventDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="RegionId" Type="int" Nullable="false" />
+    <Property Name="ControlAddress" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EndClient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="PrimeVendor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LatestSiteEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="EventDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MonthlySiteEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="EventDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="512" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PortPurpose">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PrimeVendor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="EndClientId" Type="int" Nullable="false" />
+    <Property Name="AccessId" Type="nchar" MaxLength="20" />
+    <Property Name="AccessPassword" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="QuarterlySiteEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="EventDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="CircleId" Type="int" Nullable="false" />
+    <Property Name="ControlAddress" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Site">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="AddressId" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="SIMNumber" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="SIMNetworkDetails" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SIMAPNDetails" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="IEMINumber" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="DivisionId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteAlarmEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="SiteEventId" Type="int" Nullable="false" />
+    <Property Name="AlaramTypeId" Type="int" Nullable="false" />
+    <Property Name="EventOccurred" Type="datetime" Nullable="false" />
+    <Property Name="EventResotred" Type="datetime" Nullable="false" />
+    <Property Name="AlarmStatusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventDateTime" Type="datetime" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="ProductDetails" Type="int" Nullable="false" />
+    <Property Name="SerialNumber" Type="int" Nullable="false" />
+    <Property Name="TimeStamp" Type="int" Nullable="false" />
+    <Property Name="MainsRVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="MainsRCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ShowMainsRCurrentInPercentage" Type="bit" Nullable="false" />
+    <Property Name="MainsRFrequency" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableMainsRFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsRFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsRHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsRLow" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsRok" Type="bit" Nullable="false" />
+    <Property Name="IsMainsRFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="IsMainsRFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="IsMainsRHigh" Type="bit" Nullable="false" />
+    <Property Name="IsMainsRLow" Type="bit" Nullable="false" />
+    <Property Name="IsMainsRok" Type="bit" Nullable="false" />
+    <Property Name="MainsYVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="MainsYCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ShowMainsYCurrentInPercentage" Type="bit" Nullable="false" />
+    <Property Name="MainsYFrequency" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableMainsYFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsYFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsYHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsYLow" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsYok" Type="bit" Nullable="false" />
+    <Property Name="IsMainsYFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="IsMainsYFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="IsMainsYHigh" Type="bit" Nullable="false" />
+    <Property Name="IsMainsYLow" Type="bit" Nullable="false" />
+    <Property Name="IsMainsYok" Type="bit" Nullable="false" />
+    <Property Name="MainsBVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="MainsBCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ShowMainsBCurrentInPercentage" Type="bit" Nullable="false" />
+    <Property Name="MainsBFrequency" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableMainsBFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsBFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsBHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsBLow" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsBok" Type="bit" Nullable="false" />
+    <Property Name="IsMainsBFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="IsMainsBFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="IsMainsBHigh" Type="bit" Nullable="false" />
+    <Property Name="IsMainsBLow" Type="bit" Nullable="false" />
+    <Property Name="IsMainsBok" Type="bit" Nullable="false" />
+    <Property Name="InverterRVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="InverterRCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ShowInverterRCurrentInPercentage" Type="bit" Nullable="false" />
+    <Property Name="InverterRFrequency" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableInverterRFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterRFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterRHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterRLow" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterRok" Type="bit" Nullable="false" />
+    <Property Name="IsInverterRFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="IsInverterRFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="IsInverterRHigh" Type="bit" Nullable="false" />
+    <Property Name="IsInverterRLow" Type="bit" Nullable="false" />
+    <Property Name="IsInverterRok" Type="bit" Nullable="false" />
+    <Property Name="InverterYVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="InverterYCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ShowInverterYCurrentInPercentage" Type="bit" Nullable="false" />
+    <Property Name="InverterYFrequency" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableInverterYFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterYFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterYHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterYLow" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterYok" Type="bit" Nullable="false" />
+    <Property Name="IsInverterYFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="IsInverterYFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="IsInverterYHigh" Type="bit" Nullable="false" />
+    <Property Name="IsInverterYLow" Type="bit" Nullable="false" />
+    <Property Name="IsInverterYok" Type="bit" Nullable="false" />
+    <Property Name="InverterBVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="InverterBCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="ShowInverterBCurrentInPercentage" Type="bit" Nullable="false" />
+    <Property Name="InverterBFrequency" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableInverterBFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterBFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterBHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterBLow" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterBok" Type="bit" Nullable="false" />
+    <Property Name="IsInverterBFrequencyHigh" Type="bit" Nullable="false" />
+    <Property Name="IsInverterBFrequencyLow" Type="bit" Nullable="false" />
+    <Property Name="IsInverterBHigh" Type="bit" Nullable="false" />
+    <Property Name="IsInverterBLow" Type="bit" Nullable="false" />
+    <Property Name="IsInverterBok" Type="bit" Nullable="false" />
+    <Property Name="BatteryVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="BatterySolarChargingCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="BatteryGridChargingCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="BatteryDischargingCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableBatterySolarChargerOn" Type="bit" Nullable="false" />
+    <Property Name="EnableBatteryGridChargerOn" Type="bit" Nullable="false" />
+    <Property Name="EnableBatteryDischargingOn" Type="bit" Nullable="false" />
+    <Property Name="EnableBatteryHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableBatteryLow" Type="bit" Nullable="false" />
+    <Property Name="EnableBatteryOk" Type="bit" Nullable="false" />
+    <Property Name="IsBatterySolarChargerOn" Type="bit" Nullable="false" />
+    <Property Name="IsBatteryGridChargerOn" Type="bit" Nullable="false" />
+    <Property Name="IsBatteryDischargingOn" Type="bit" Nullable="false" />
+    <Property Name="IsBatteryHigh" Type="bit" Nullable="false" />
+    <Property Name="IsBatteryLow" Type="bit" Nullable="false" />
+    <Property Name="IsBatteryOk" Type="bit" Nullable="false" />
+    <Property Name="SolarVoltage" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="SolarCurrent" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="SolarGeneration" Type="numeric" Precision="12" Scale="3" Nullable="false" />
+    <Property Name="EnableSolarOverCurrent" Type="bit" Nullable="false" />
+    <Property Name="EnableSolarHigh" Type="bit" Nullable="false" />
+    <Property Name="EnableSolarLow" Type="bit" Nullable="false" />
+    <Property Name="EnableSolarOk" Type="bit" Nullable="false" />
+    <Property Name="IsSolarOverCurrent" Type="bit" Nullable="false" />
+    <Property Name="IsSolarHigh" Type="bit" Nullable="false" />
+    <Property Name="IsSolarLow" Type="bit" Nullable="false" />
+    <Property Name="IsSolarOk" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterBled" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterYled" Type="bit" Nullable="false" />
+    <Property Name="EnableInverterRled" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsBled" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsYled" Type="bit" Nullable="false" />
+    <Property Name="EnableMainsRled" Type="bit" Nullable="false" />
+    <Property Name="IsInverterBled" Type="bit" Nullable="false" />
+    <Property Name="IsInverterYled" Type="bit" Nullable="false" />
+    <Property Name="IsInverterRled" Type="bit" Nullable="false" />
+    <Property Name="IsMainsBled" Type="bit" Nullable="false" />
+    <Property Name="IsMainsYled" Type="bit" Nullable="false" />
+    <Property Name="IsMainsRled" Type="bit" Nullable="false" />
+    <Property Name="EnableBatteryFaultLed" Type="bit" Nullable="false" />
+    <Property Name="EnableLoadFaultLed" Type="bit" Nullable="false" />
+    <Property Name="EnableSolarChargerLed" Type="bit" Nullable="false" />
+    <Property Name="EnableGridChargerLed" Type="bit" Nullable="false" />
+    <Property Name="IsBatteryFaultLed" Type="bit" Nullable="false" />
+    <Property Name="IsLoadFaultLed" Type="bit" Nullable="false" />
+    <Property Name="IsSolarChargerLed" Type="bit" Nullable="false" />
+    <Property Name="IsGridChargerLed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SitePort">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="Port" Type="int" Nullable="false" />
+    <Property Name="PortPurpose" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteRemoteAction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="ActionTypeID" Type="int" Nullable="false" />
+    <Property Name="ActionValue" Type="varchar" MaxLength="1024" Nullable="false" />
+    <Property Name="RegistationDateTime" Type="datetime" Nullable="false" />
+    <Property Name="ScheduleDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteRemoteActionHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="ActionTypeId" Type="int" Nullable="false" />
+    <Property Name="ActionValue" Type="varchar" MaxLength="1024" Nullable="false" />
+    <Property Name="RegistationDateTime" Type="datetime" Nullable="false" />
+    <Property Name="ScheduleDateTime" Type="datetime" Nullable="false" />
+    <Property Name="SubmittedDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteRemoteActionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="ActionId" Type="varchar" MaxLength="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SiteStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="256" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrackingHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Longitude" Type="numeric" Precision="16" Scale="7" />
+    <Property Name="Latitude" Type="numeric" Precision="16" Scale="7" />
+    <Property Name="EventTime" Type="datetime" />
+    <Property Name="DeviceId" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="UserId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Address" Type="int" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Emai" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="AccessId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccessPassword" Type="varchar" MaxLength="16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAccess">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="DivisionId" Type="int" Nullable="false" />
+    <Property Name="RegionId" Type="int" Nullable="false" />
+    <Property Name="CircleId" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="AccessControlId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Project" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSite">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usertbl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MobilePhone" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="MobilePassCode" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="UserStatusId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WeeklySiteEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiteId" Type="int" Nullable="false" />
+    <Property Name="EventId" Type="int" Nullable="false" />
+    <Property Name="EventDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Address_District">
+    <End Role="District" Type="Self.District" Multiplicity="1" />
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Circle_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Circle" Type="Self.Circle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Circle">
+        <PropertyRef Name="ControlAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Partner">
+    <End Role="Partner" Type="Self.Partner" Multiplicity="1" />
+    <End Role="Client" Type="Self.Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partner">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="PartnerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DailySiteEvent_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="DailySiteEvent" Type="Self.DailySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DailySiteEvent">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DailySiteEvent_SiteEvent">
+    <End Role="SiteEvent" Type="Self.SiteEvent" Multiplicity="1" />
+    <End Role="DailySiteEvent" Type="Self.DailySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteEvent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DailySiteEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_District_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="District" Type="Self.District" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="District">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Division_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Division" Type="Self.Division" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Division">
+        <PropertyRef Name="ControlAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Division_Region1">
+    <End Role="Region" Type="Self.Region" Multiplicity="1" />
+    <End Role="Division" Type="Self.Division" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Division">
+        <PropertyRef Name="RegionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EndClient_PrimeVendor">
+    <End Role="PrimeVendor" Type="Self.PrimeVendor" Multiplicity="1" />
+    <End Role="EndClient" Type="Self.EndClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PrimeVendor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EndClient">
+        <PropertyRef Name="PrimeVendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LatestSiteEvent_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="LatestSiteEvent" Type="Self.LatestSiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LatestSiteEvent">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LatestSiteEvent_SiteEvent">
+    <End Role="SiteEvent" Type="Self.SiteEvent" Multiplicity="1" />
+    <End Role="LatestSiteEvent" Type="Self.LatestSiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteEvent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LatestSiteEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlySiteEvent_MonthlySiteEvent">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="MonthlySiteEvent" Type="Self.MonthlySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MonthlySiteEvent">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MonthlySiteEvent_SiteEvent1">
+    <End Role="SiteEvent" Type="Self.SiteEvent" Multiplicity="1" />
+    <End Role="MonthlySiteEvent" Type="Self.MonthlySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteEvent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MonthlySiteEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_EndClient">
+    <End Role="EndClient" Type="Self.EndClient" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EndClient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="EndClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuarterlySiteEvent_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="QuarterlySiteEvent" Type="Self.QuarterlySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuarterlySiteEvent">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_QuarterlySiteEvent_SiteEvent">
+    <End Role="SiteEvent" Type="Self.SiteEvent" Multiplicity="1" />
+    <End Role="QuarterlySiteEvent" Type="Self.QuarterlySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteEvent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="QuarterlySiteEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Region" Type="Self.Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Region">
+        <PropertyRef Name="ControlAddress" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region_Circle">
+    <End Role="Circle" Type="Self.Circle" Multiplicity="1" />
+    <End Role="Region" Type="Self.Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Region">
+        <PropertyRef Name="CircleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Site_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="Site" Type="Self.Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Site">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Site_Division">
+    <End Role="Division" Type="Self.Division" Multiplicity="1" />
+    <End Role="Site" Type="Self.Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Site">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Site_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="Site" Type="Self.Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Site">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Site_SiteStatus">
+    <End Role="SiteStatus" Type="Self.SiteStatus" Multiplicity="1" />
+    <End Role="Site" Type="Self.Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Site">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteAlarmEvents_AlaramType">
+    <End Role="AlaramType" Type="Self.AlaramType" Multiplicity="1" />
+    <End Role="SiteAlarmEvents" Type="Self.SiteAlarmEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AlaramType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteAlarmEvents">
+        <PropertyRef Name="AlaramTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteAlarmEvents_AlarmStatus">
+    <End Role="AlarmStatus" Type="Self.AlarmStatus" Multiplicity="1" />
+    <End Role="SiteAlarmEvents" Type="Self.SiteAlarmEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AlarmStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteAlarmEvents">
+        <PropertyRef Name="AlarmStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteAlarmEvents_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="SiteAlarmEvents" Type="Self.SiteAlarmEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteAlarmEvents">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteAlarmEvents_SiteEvent">
+    <End Role="SiteEvent" Type="Self.SiteEvent" Multiplicity="1" />
+    <End Role="SiteAlarmEvents" Type="Self.SiteAlarmEvents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteEvent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteAlarmEvents">
+        <PropertyRef Name="SiteEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteEvent_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="SiteEvent" Type="Self.SiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteEvent">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SitePort_PortPurpose">
+    <End Role="PortPurpose" Type="Self.PortPurpose" Multiplicity="1" />
+    <End Role="SitePort" Type="Self.SitePort" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PortPurpose">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SitePort">
+        <PropertyRef Name="PortPurpose" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SitePort_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="SitePort" Type="Self.SitePort" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SitePort">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteRemoteAction_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="SiteRemoteAction" Type="Self.SiteRemoteAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteRemoteAction">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteRemoteAction_SiteRemoteActionType">
+    <End Role="SiteRemoteActionType" Type="Self.SiteRemoteActionType" Multiplicity="1" />
+    <End Role="SiteRemoteAction" Type="Self.SiteRemoteAction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteRemoteActionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteRemoteAction">
+        <PropertyRef Name="ActionTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteRemoteActionHistory_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="SiteRemoteActionHistory" Type="Self.SiteRemoteActionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteRemoteActionHistory">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SiteRemoteActionHistory_SiteRemoteActionType">
+    <End Role="SiteRemoteActionType" Type="Self.SiteRemoteActionType" Multiplicity="1" />
+    <End Role="SiteRemoteActionHistory" Type="Self.SiteRemoteActionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteRemoteActionType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SiteRemoteActionHistory">
+        <PropertyRef Name="ActionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Address">
+    <End Role="Address" Type="Self.Address" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Address" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserStatus">
+    <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="1" />
+    <End Role="Usertbl" Type="Self.Usertbl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Usertbl">
+        <PropertyRef Name="UserStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccess_AccessControl">
+    <End Role="AccessControl" Type="Self.AccessControl" Multiplicity="1" />
+    <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessControl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAccess">
+        <PropertyRef Name="AccessControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccess_Circle">
+    <End Role="Circle" Type="Self.Circle" Multiplicity="1" />
+    <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Circle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAccess">
+        <PropertyRef Name="CircleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccess_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAccess">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccess_Region">
+    <End Role="Region" Type="Self.Region" Multiplicity="1" />
+    <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAccess">
+        <PropertyRef Name="RegionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccess_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAccess">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserAccess_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="UserAccess" Type="Self.UserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserAccess">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProject_User">
+    <End Role="Usertbl" Type="Self.Usertbl" Multiplicity="1" />
+    <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usertbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProject">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSite_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="UserSite" Type="Self.UserSite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSite">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSite_User">
+    <End Role="Usertbl" Type="Self.Usertbl" Multiplicity="1" />
+    <End Role="UserSite" Type="Self.UserSite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usertbl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserSite">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WeeklySiteEvent_Site">
+    <End Role="Site" Type="Self.Site" Multiplicity="1" />
+    <End Role="WeeklySiteEvent" Type="Self.WeeklySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Site">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WeeklySiteEvent">
+        <PropertyRef Name="SiteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WeeklySiteEvent_SiteEvent">
+    <End Role="SiteEvent" Type="Self.SiteEvent" Multiplicity="1" />
+    <End Role="WeeklySiteEvent" Type="Self.WeeklySiteEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SiteEvent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WeeklySiteEvent">
+        <PropertyRef Name="EventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ELMAS_UPS_V1ModelStoreContainer">
+    <EntitySet Name="AccessControl" EntityType="Self.AccessControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlaramType" EntityType="Self.AlaramType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlarmStatus" EntityType="Self.AlarmStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Circle" EntityType="Self.Circle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DailySiteEvent" EntityType="Self.DailySiteEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="District" EntityType="Self.District" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EndClient" EntityType="Self.EndClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LatestSiteEvent" EntityType="Self.LatestSiteEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MonthlySiteEvent" EntityType="Self.MonthlySiteEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PortPurpose" EntityType="Self.PortPurpose" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PrimeVendor" EntityType="Self.PrimeVendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuarterlySiteEvent" EntityType="Self.QuarterlySiteEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Site" EntityType="Self.Site" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteAlarmEvents" EntityType="Self.SiteAlarmEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteEvent" EntityType="Self.SiteEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SitePort" EntityType="Self.SitePort" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteRemoteAction" EntityType="Self.SiteRemoteAction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteRemoteActionHistory" EntityType="Self.SiteRemoteActionHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteRemoteActionType" EntityType="Self.SiteRemoteActionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SiteStatus" EntityType="Self.SiteStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrackingHistory" EntityType="Self.TrackingHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAccess" EntityType="Self.UserAccess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProject" EntityType="Self.UserProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSite" EntityType="Self.UserSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usertbl" EntityType="Self.Usertbl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WeeklySiteEvent" EntityType="Self.WeeklySiteEvent" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Address_District" Association="Self.FK_Address_District">
+      <End Role="District" EntitySet="District" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Circle_Address" Association="Self.FK_Circle_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Circle" EntitySet="Circle" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Partner" Association="Self.FK_Client_Partner">
+      <End Role="Partner" EntitySet="Partner" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DailySiteEvent_Site" Association="Self.FK_DailySiteEvent_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="DailySiteEvent" EntitySet="DailySiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DailySiteEvent_SiteEvent" Association="Self.FK_DailySiteEvent_SiteEvent">
+      <End Role="SiteEvent" EntitySet="SiteEvent" />
+      <End Role="DailySiteEvent" EntitySet="DailySiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_District_State" Association="Self.FK_District_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="District" EntitySet="District" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Division_Address" Association="Self.FK_Division_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Division" EntitySet="Division" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Division_Region1" Association="Self.FK_Division_Region1">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="Division" EntitySet="Division" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EndClient_PrimeVendor" Association="Self.FK_EndClient_PrimeVendor">
+      <End Role="PrimeVendor" EntitySet="PrimeVendor" />
+      <End Role="EndClient" EntitySet="EndClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LatestSiteEvent_Site" Association="Self.FK_LatestSiteEvent_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="LatestSiteEvent" EntitySet="LatestSiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LatestSiteEvent_SiteEvent" Association="Self.FK_LatestSiteEvent_SiteEvent">
+      <End Role="SiteEvent" EntitySet="SiteEvent" />
+      <End Role="LatestSiteEvent" EntitySet="LatestSiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlySiteEvent_MonthlySiteEvent" Association="Self.FK_MonthlySiteEvent_MonthlySiteEvent">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="MonthlySiteEvent" EntitySet="MonthlySiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MonthlySiteEvent_SiteEvent1" Association="Self.FK_MonthlySiteEvent_SiteEvent1">
+      <End Role="SiteEvent" EntitySet="SiteEvent" />
+      <End Role="MonthlySiteEvent" EntitySet="MonthlySiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_EndClient" Association="Self.FK_Project_EndClient">
+      <End Role="EndClient" EntitySet="EndClient" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuarterlySiteEvent_Site" Association="Self.FK_QuarterlySiteEvent_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="QuarterlySiteEvent" EntitySet="QuarterlySiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_QuarterlySiteEvent_SiteEvent" Association="Self.FK_QuarterlySiteEvent_SiteEvent">
+      <End Role="SiteEvent" EntitySet="SiteEvent" />
+      <End Role="QuarterlySiteEvent" EntitySet="QuarterlySiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Region_Address" Association="Self.FK_Region_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Region" EntitySet="Region" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Region_Circle" Association="Self.FK_Region_Circle">
+      <End Role="Circle" EntitySet="Circle" />
+      <End Role="Region" EntitySet="Region" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Site_Address" Association="Self.FK_Site_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Site" EntitySet="Site" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Site_Division" Association="Self.FK_Site_Division">
+      <End Role="Division" EntitySet="Division" />
+      <End Role="Site" EntitySet="Site" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Site_Project" Association="Self.FK_Site_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Site" EntitySet="Site" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Site_SiteStatus" Association="Self.FK_Site_SiteStatus">
+      <End Role="SiteStatus" EntitySet="SiteStatus" />
+      <End Role="Site" EntitySet="Site" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteAlarmEvents_AlaramType" Association="Self.FK_SiteAlarmEvents_AlaramType">
+      <End Role="AlaramType" EntitySet="AlaramType" />
+      <End Role="SiteAlarmEvents" EntitySet="SiteAlarmEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteAlarmEvents_AlarmStatus" Association="Self.FK_SiteAlarmEvents_AlarmStatus">
+      <End Role="AlarmStatus" EntitySet="AlarmStatus" />
+      <End Role="SiteAlarmEvents" EntitySet="SiteAlarmEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteAlarmEvents_Site" Association="Self.FK_SiteAlarmEvents_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="SiteAlarmEvents" EntitySet="SiteAlarmEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteAlarmEvents_SiteEvent" Association="Self.FK_SiteAlarmEvents_SiteEvent">
+      <End Role="SiteEvent" EntitySet="SiteEvent" />
+      <End Role="SiteAlarmEvents" EntitySet="SiteAlarmEvents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteEvent_Site" Association="Self.FK_SiteEvent_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="SiteEvent" EntitySet="SiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SitePort_PortPurpose" Association="Self.FK_SitePort_PortPurpose">
+      <End Role="PortPurpose" EntitySet="PortPurpose" />
+      <End Role="SitePort" EntitySet="SitePort" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SitePort_Site" Association="Self.FK_SitePort_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="SitePort" EntitySet="SitePort" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteRemoteAction_Site" Association="Self.FK_SiteRemoteAction_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="SiteRemoteAction" EntitySet="SiteRemoteAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteRemoteAction_SiteRemoteActionType" Association="Self.FK_SiteRemoteAction_SiteRemoteActionType">
+      <End Role="SiteRemoteActionType" EntitySet="SiteRemoteActionType" />
+      <End Role="SiteRemoteAction" EntitySet="SiteRemoteAction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteRemoteActionHistory_Site" Association="Self.FK_SiteRemoteActionHistory_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="SiteRemoteActionHistory" EntitySet="SiteRemoteActionHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SiteRemoteActionHistory_SiteRemoteActionType" Association="Self.FK_SiteRemoteActionHistory_SiteRemoteActionType">
+      <End Role="SiteRemoteActionType" EntitySet="SiteRemoteActionType" />
+      <End Role="SiteRemoteActionHistory" EntitySet="SiteRemoteActionHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Address" Association="Self.FK_User_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserStatus" Association="Self.FK_User_UserStatus">
+      <End Role="UserStatus" EntitySet="UserStatus" />
+      <End Role="Usertbl" EntitySet="Usertbl" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccess_AccessControl" Association="Self.FK_UserAccess_AccessControl">
+      <End Role="AccessControl" EntitySet="AccessControl" />
+      <End Role="UserAccess" EntitySet="UserAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccess_Circle" Association="Self.FK_UserAccess_Circle">
+      <End Role="Circle" EntitySet="Circle" />
+      <End Role="UserAccess" EntitySet="UserAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccess_Project" Association="Self.FK_UserAccess_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="UserAccess" EntitySet="UserAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccess_Region" Association="Self.FK_UserAccess_Region">
+      <End Role="Region" EntitySet="Region" />
+      <End Role="UserAccess" EntitySet="UserAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccess_Site" Association="Self.FK_UserAccess_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="UserAccess" EntitySet="UserAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserAccess_User" Association="Self.FK_UserAccess_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="UserAccess" EntitySet="UserAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProject_User" Association="Self.FK_UserProject_User">
+      <End Role="Usertbl" EntitySet="Usertbl" />
+      <End Role="UserProject" EntitySet="UserProject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSite_Site" Association="Self.FK_UserSite_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="UserSite" EntitySet="UserSite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSite_User" Association="Self.FK_UserSite_User">
+      <End Role="Usertbl" EntitySet="Usertbl" />
+      <End Role="UserSite" EntitySet="UserSite" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WeeklySiteEvent_Site" Association="Self.FK_WeeklySiteEvent_Site">
+      <End Role="Site" EntitySet="Site" />
+      <End Role="WeeklySiteEvent" EntitySet="WeeklySiteEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WeeklySiteEvent_SiteEvent" Association="Self.FK_WeeklySiteEvent_SiteEvent">
+      <End Role="SiteEvent" EntitySet="SiteEvent" />
+      <End Role="WeeklySiteEvent" EntitySet="WeeklySiteEvent" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

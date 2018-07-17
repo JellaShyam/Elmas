@@ -1,0 +1,4 @@
+D:\Shyam\Elmas\Indus.Logger\bin\Release\Indus.Logger.dll
+D:\Shyam\Elmas\Indus.Logger\bin\Release\Indus.Logger.pdb
+D:\Shyam\Elmas\Indus.Logger\obj\Release\Indus.Logger.dll
+D:\Shyam\Elmas\Indus.Logger\obj\Release\Indus.Logger.pdb

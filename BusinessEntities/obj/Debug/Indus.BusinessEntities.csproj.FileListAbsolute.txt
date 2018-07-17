@@ -1,0 +1,5 @@
+D:\Sample\Vtrace-Restfull-API\BusinessEntities\bin\Debug\BusinessEntities.dll
+D:\Sample\Vtrace-Restfull-API\BusinessEntities\bin\Debug\BusinessEntities.pdb
+D:\Sample\Vtrace-Restfull-API\BusinessEntities\obj\Debug\BusinessEntities.dll
+D:\Sample\Vtrace-Restfull-API\BusinessEntities\obj\Debug\BusinessEntities.pdb
+D:\Sample\Vtrace-Restfull-API\BusinessEntities\obj\Debug\Indus.BusinessEntities.csprojResolveAssemblyReference.cache
